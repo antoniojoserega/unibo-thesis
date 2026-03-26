@@ -1,0 +1,92 @@
+% Author Name: Antonio José Gregorio Rega 
+% Author Contact: antonio.jose.rega@gmail.com
+% Version: 2.2.13 - 2026/01/06
+% Public Repository: https://github.com/antoniojoserega/unibo-thesis-latex-template
+% Wiki/Getting Help: https://github.com/antoniojoserega/unibo-thesis-latex-template/wiki
+% Based on: IPLeiria Thesis Template by José Areia
+% Adapted for Alma Mater Studiorum - Università di Bologna
+
+%%% Document Options %%%
+\documentclass[
+	language=italian, % Impostato su italiano (puoi rimettere english se serve)
+	school=ingegneria, % Le nuove opzioni: ingegneria, economia, lettere, scienze, medicina, giurisprudenza
+	docstage=final,
+	media=screen, % Messo su screen per pdf cliccabili migliori. Metti paper per la stampa
+	bookprint=false,
+	linkcolor=black, % Consiglio il nero per i link nella tesi ufficiale, o unibored (che definiremo a breve)
+	chapterstyle=classic,
+	coverstyle=classic,
+	aiacknowledgement=true,
+	listprefix=false
+]{UniboThesis}
+
+%%% Document Version %%%
+\DocumentVersion{1.0.0} % Required only if the 'docstage' is set to 'working'.
+
+%%% Document Metadata %%%
+\input{Metadata/Metadata}
+
+%%% Loading of Glossary and Acronyms %%%
+\makeglossaries
+\loadglsentries{Matter/05-Glossary}
+\loadglsentries[\acronymtype]{Matter/06-Acronyms}
+\loadglsentries[\symboltype]{Matter/07-Symbols}
+
+\begin{document}
+	
+	%%% Front Matter %%%
+	\include{Matter/00-Cover}
+	\include{Matter/01-Front-Page}
+	
+	%%% Copyright Statement (Opzionale per Unibo) %%%
+	\include{Matter/02-Copyright}
+	
+	%%% Roman Numeration %%%
+	\pagenumbering{roman}
+	
+	%%% Acknowledgements (Ringraziamenti) %%%
+	\include{Matter/03-Acknowledgements}
+	
+	%%% Abstract (Sommario) %%%
+	\include{Chapters/00-Abstract}
+	
+	%%% AI Acknowledgement (Dichiarazione uso AI) %%%
+	\include{Matter/04-AI}
+	
+	%%% Table of Contents, List of Figures and List of Tables %%%
+	\bookmarktocentry\tableofcontents
+	\listoffigures
+	\listoftables
+	
+	%%% Print: Glossary and Acronyms %%%
+	\glossarytoc\printnormalglossary
+	\acronymtoc\printacronymglossary
+	\symboltoc\printsymbolglossary
+	
+	%%% Arabic Numeration %%%
+	\pagenumbering{arabic}
+	
+	%%% Chapters (**Insert Yours Here**) %%%
+	% Manteniamo i nomi dei file originali per ora, per non far arrabbiare il compilatore
+	\include{Chapters/01-Introduction}
+%	\include{Chapters/02-User-Guide}
+%	\include{Chapters/03-Latex-Tutorial}
+	
+	%%% Bibliography %%%
+	\renewcommand{\refname}{Bibliografia}
+	\printbibliography[title={\refname},heading=bibintoc]
+	
+	%%% Appendices: Work that *YOU* Developed %%%
+	\appendix
+	\input{Matter/08-Appendices}
+	\input{Chapters/Appendices/00-AppendixA}
+	\input{Chapters/Appendices/01-AppendixB}
+	
+	%%% Annexes: Work that *YOU DID NOT* Develop %%%
+	\input{Matter/09-Annexes}
+	\input{Chapters/Annexes/00-AnnexA}
+	
+	%%% Back Page %%%
+	\input{Matter/10-Back-Page}
+	
+\end{document}
