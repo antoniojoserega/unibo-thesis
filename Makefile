@@ -9,58 +9,57 @@ SHELL=/bin/bash
 TOOL=latexmk
 
 all:
-	@$(MAKE) check-minted
-	@$(MAKE) build
+    @$(MAKE) check-minted
+    @$(MAKE) build
 
 check-minted:
-	@echo "Checking minted version..."
-	@MINTED_VERSION=$$(sed -n 's/.* v\([0-9.]*\) .*/\1/p' $$(kpsewhich minted.sty) | head -n 1); \
-	if [ -z "$$MINTED_VERSION" ]; then \
-		echo "Error: Could not determine minted version."; \
-		exit 1; \
-	fi; \
-	echo "Detected minted version: $$MINTED_VERSION"; \
-	MAJOR_VERSION=$$(echo $$MINTED_VERSION | cut -d. -f1); \
-	if [ "$$MAJOR_VERSION" -lt 3 ]; then \
-		echo "Version < 3.0.0, modifying UniboThesis.cls..."; \
-		sed -i.bak 's/\\RequirePackage\[newfloat\]{minted}/\\RequirePackage[newfloat,outputdir=.aux]{minted}/' UniboThesis.cls; \
-		echo "Modification complete. Backup saved as UniboThesis.cls.bak"; \
-	else \
-		echo "Version >= 3.0.0, no modification required."; \
-	fi
+    @echo "Checking minted version..."
+    @MINTED_VERSION=$$(sed -n 's/.* v\([0-9.]*\) .*/\1/p' $$(kpsewhich minted.sty) | head -n 1); \
+    if [ -z "$$MINTED_VERSION" ]; then \
+        echo "Error: Could not determine minted version."; \
+        exit 1; \
+    fi; \
+    echo "Detected minted version: $$MINTED_VERSION"; \
+    MAJOR_VERSION=$$(echo $$MINTED_VERSION | cut -d. -f1); \
+    if [ "$$MAJOR_VERSION" -lt 3 ]; then \
+        echo "Version < 3.0.0, modifying UniboThesis.cls..."; \
+        sed -i.bak 's/\\RequirePackage\[newfloat\]{minted}/\\RequirePackage[newfloat,outputdir=.aux]{minted}/' UniboThesis.cls; \
+        echo "Modification complete. Backup saved as UniboThesis.cls.bak"; \
+    else \
+        echo "Version >= 3.0.0, no modification required."; \
+    fi
 
 build:
-	@echo "Building $(DOCUMENT) with $(TOOL)..."
+    @echo "Building $(DOCUMENT) with $(TOOL) via LuaLaTeX..."
 ifeq ($(TOOL),rubber)
-	@rubber --pdf --module xelatex --shell-escape $(DOCUMENT)
+    @rubber --pdf --lualatex --shell-escape $(DOCUMENT)
 else ifeq ($(TOOL),latexmk)
-	#@latexmk -pdf -xelatex -shell-escape $(DOCUMENT)
-	@latexmk
+    @latexmk -pdf -lualatex -shell-escape $(DOCUMENT)
 else
-	@echo "Error: Unsupported tool '$(TOOL)'. Use 'rubber' or 'latexmk'."
-	@exit 1
+    @echo "Error: Unsupported tool '$(TOOL)'. Use 'rubber' or 'latexmk'."
+    @exit 1
 endif
-	@echo "Build complete."
+    @echo "Build complete."
 
 clean:
-	@echo "Cleaning up..."
+    @echo "Cleaning up..."
 ifeq ($(TOOL),rubber)
-	@rubber --clean $(DOCUMENT)
+    @rubber --clean $(DOCUMENT)
 else ifeq ($(TOOL),latexmk)
-	@latexmk -C
+    @latexmk -C
 endif
-	@for ext in acn acr alg fls xdv fdb_latexmk toc; do \
-		if compgen -G "*.$$ext" > /dev/null; then \
-			rm -f *.$$ext; \
-		fi; \
-	done
-	@echo "Clean complete."
+    @for ext in acn acr alg fls xdv fdb_latexmk toc; do \
+        if compgen -G "*.$$ext" > /dev/null; then \
+            rm -f *.$$ext; \
+        fi; \
+    done
+    @echo "Clean complete."
 
 watch:
 ifeq ($(SHELL),/bin/zsh)
-	@echo "Watching $(DOCUMENT) for changes (zsh)..."
-	@while true; do inotifywait -e close_write $(DOCUMENT); sleep 0.01; make all; done
+    @echo "Watching $(DOCUMENT) for changes (zsh)..."
+    @while true; do inotifywait -e close_write $(DOCUMENT); sleep 0.01; make all; done
 else
-	@echo "Watching $(DOCUMENT) for changes (bash)..."
-	@while true; do inotifywait -e close_write $(DOCUMENT); sleep 0.01; make all; done
+    @echo "Watching $(DOCUMENT) for changes (bash)..."
+    @while true; do inotifywait -e close_write $(DOCUMENT); sleep 0.01; make all; done
 endif
