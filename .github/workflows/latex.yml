@@ -28,7 +28,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: UniboMain.tex
-          compiler: lualatex
+          compiler: latexmk
           latexmk_use_lualatex: true
           latexmk_shell_escape: true
           extra_system_packages: "font-liberation font-dejavu fontconfig font-ebgaramond font-lato"
