@@ -8,12 +8,12 @@
 
 %%% Document Options %%%
 \documentclass[
-	language=italian, % Impostato su italiano (puoi rimettere english se serve)
-	school=ingegneria, % Le nuove opzioni: ingegneria, economia, lettere, scienze, medicina, giurisprudenza
+	language=italian,
+	school=ingegneria, % Le opzioni: ingegneria, economia, lettere, scienze, medicina, giurisprudenza
 	docstage=final,
 	media=screen, % Messo su screen per pdf cliccabili migliori. Metti paper per la stampa
 	bookprint=false,
-	linkcolor=black, % Consiglio il nero per i link nella tesi ufficiale, o unibored (che definiremo a breve)
+	linkcolor=black,
 	chapterstyle=classic,
 	coverstyle=classic,
 	aiacknowledgement=true,
@@ -36,7 +36,7 @@
 	
 	%%% Front Matter %%%
 	\include{Matter/00-Cover}
-	\include{Matter/01-Front-Page}
+	% \include{Matter/01-Front-Page}
 	
 	%%% Copyright Statement (Opzionale per Unibo) %%%
 	\include{Matter/02-Copyright}
@@ -84,8 +84,5 @@
 	%%% Annexes: Work that *YOU DID NOT* Develop %%%
 	% \input{Matter/09-Annexes}
 	% \input{Chapters/Annexes/00-AnnexA}
-	
-	%%% Back Page %%%
-	\input{Matter/10-Back-Page}
 	
 \end{document}
