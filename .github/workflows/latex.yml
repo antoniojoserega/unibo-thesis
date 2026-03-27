@@ -1,47 +1,47 @@
 name: Build LaTeX Document
 on:
-push:
-paths-ignore:
-- '**/README.md'
-- '**/LICENSE'
-- '**/.gitignore'
-- '**/.gitattributes'
-- '**/Makefile'
-- 'Assets/**'
-pull_request:
-paths-ignore:
-- '**/README.md'
-- '**/LICENSE'
-- '**/.gitignore'
-- '**/.gitattributes'
-- '**/Makefile'
-- 'Assets/**'
+  push:
+    paths-ignore:
+      - '**/README.md'
+      - '**/LICENSE'
+      - '**/.gitignore'
+      - '**/.gitattributes'
+      - '**/Makefile'
+      - 'Assets/**'
+  pull_request:
+    paths-ignore:
+      - '**/README.md'
+      - '**/LICENSE'
+      - '**/.gitignore'
+      - '**/.gitattributes'
+      - '**/Makefile'
+      - 'Assets/**'
 
 jobs:
-build_latex:
-runs-on: ubuntu-latest
-steps:
-- name: Setup Git Repository
-uses: actions/checkout@v4
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Git Repository
+        uses: actions/checkout@v4
 
-- name: LaTeX Document Compilation
-uses: xu-cheng/latex-action@v3
-with:
-root_file: UniboMain.tex
-compiler: lualatex
-latexmk_use_lualatex: true
-latexmk_shell_escape: true
-extra_system_packages: "font-liberation font-dejavu fontconfig font-ebgaramond font-lato"
-pre_compile: |
-mkdir -p /usr/local/share/fonts/unibo-fonts
-if [ -d "./Configurations/Fonts" ]; then
-cp ./Configurations/Fonts/*.ttf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
-cp ./Configurations/Fonts/*.otf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
-fi
-fc-cache -f -v
+      - name: LaTeX Document Compilation
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: UniboMain.tex
+          compiler: lualatex
+          latexmk_use_lualatex: true
+          latexmk_shell_escape: true
+          extra_system_packages: "font-liberation font-dejavu fontconfig font-ebgaramond font-lato"
+          pre_compile: |
+            mkdir -p /usr/local/share/fonts/unibo-fonts
+            if [ -d "./Configurations/Fonts" ]; then
+              cp ./Configurations/Fonts/*.ttf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
+              cp ./Configurations/Fonts/*.otf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
+            fi
+            fc-cache -f -v
 
-- name: Upload PDF
-uses: actions/upload-artifact@v4
-with:
-name: Unibo-Thesis-PDF
-path: UniboMain.pdf
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Unibo-Thesis-PDF
+          path: UniboMain.pdf
