@@ -24,31 +24,6 @@ steps:
 - name: Setup Git Repository
 uses: actions/checkout@v4
 
-- name: Install System Fonts and Dependencies
-run: |
-sudo apt-get update
-sudo apt-get install -y \
-texlive-fonts-extra \
-texlive-fonts-recommended \
-fonts-liberation \
-fonts-dejavu \
-fonts-lato \
-fonts-ebgaramond \
-fontconfig
-
-- name: Install Custom Project Fonts
-run: |
-# Crea la cartella dei font di sistema se non esiste
-sudo mkdir -p /usr/local/share/fonts/unibo-fonts
-# Copia i tuoi font dalla cartella del progetto a quella di sistema
-# Nota: assicurati che il percorso ./Configurations/Fonts/ sia corretto rispetto alla root
-if [ -d "./Configurations/Fonts" ]; then
-sudo cp ./Configurations/Fonts/*.ttf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
-sudo cp ./Configurations/Fonts/*.otf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
-fi
-# Aggiorna la cache dei font del sistema Linux
-sudo fc-cache -f -v
-
 - name: LaTeX Document Compilation
 uses: xu-cheng/latex-action@v3
 with:
@@ -56,8 +31,14 @@ root_file: UniboMain.tex
 compiler: lualatex
 latexmk_use_lualatex: true
 latexmk_shell_escape: true
-# Aggiungiamo i font alla ricerca di kpathsea
-args: "-shell-escape -interaction=nonstopmode -file-line-error"
+extra_system_packages: "font-liberation font-dejavu fontconfig font-ebgaramond font-lato"
+pre_compile: |
+mkdir -p /usr/local/share/fonts/unibo-fonts
+if [ -d "./Configurations/Fonts" ]; then
+cp ./Configurations/Fonts/*.ttf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
+cp ./Configurations/Fonts/*.otf /usr/local/share/fonts/unibo-fonts/ 2>/dev/null || true
+fi
+fc-cache -f -v
 
 - name: Upload PDF
 uses: actions/upload-artifact@v4
