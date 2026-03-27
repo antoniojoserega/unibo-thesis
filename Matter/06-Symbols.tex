@@ -1,0 +1,40 @@
+%%% Simboli / Symbols %%%
+
+% Inserisci qui tutti i simboli matematici o fisici che utilizzerai.
+% Verranno inseriti automaticamente nell'Elenco dei Simboli.
+%
+% COME USARLI NEL TESTO:
+% Usa il comando \gls{etichetta} (es. \gls{sigma} o \gls{alpha}).
+% Usare questo metodo è utilissimo: se a metà stesura decidi di cambiare 
+% la lettera di una variabile, ti basterà cambiarla qui e si aggiornerà 
+% in tutti i capitoli della tesi automaticamente!
+
+% --- Esempi per Ingegneria (Cancellali e inserisci i tuoi) ---
+
+\newglossaryentry{alpha}{
+	name={\ensuremath{\alpha}},
+	description={Coefficiente di dilatazione termica lineare, in \ensuremath{^\circ\text{C}^{-1}}},
+	sort=alpha,
+	type=symbols
+}
+
+\newglossaryentry{sigma}{
+	name={\ensuremath{\sigma}},
+	description={Tensione normale applicata a una sezione strutturale, in MPa},
+	sort=sigma,
+	type=symbols
+}
+
+\newglossaryentry{epsilon}{
+	name={\ensuremath{\varepsilon}},
+	description={Deformazione specifica o assiale (adimensionale)},
+	sort=epsilon,
+	type=symbols
+}
+
+\newglossaryentry{E}{
+	name={\ensuremath{E}},
+	description={Modulo di elasticità longitudinale (Modulo di Young), in GPa},
+	sort=E,
+	type=symbols
+}

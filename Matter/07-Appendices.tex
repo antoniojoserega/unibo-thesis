@@ -1,0 +1,28 @@
+%%% Pagina di separazione Appendici / Appendices %%%
+
+% Aggiunge la voce "Appendici" o "Appendices" all'Indice Generale (ToC)
+\ifthenelse{\equal{\LanguageOption}{italian}}{
+	\addtocontents{toc}{\protect\contentsline{chapter}{Appendici}{}{}}
+}{
+	\addtocontents{toc}{\protect\contentsline{chapter}{Appendices}{}{}}
+}
+
+% Gestione pagina vuota per la stampa fronte/retro
+\ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{\clearpage}
+
+\begin{center}
+	\thispagestyle{empty} % Rimuove il numero di pagina da questo foglio separatore
+	
+	\vspace*{\fill}
+	
+	% Titolo gigante al centro della pagina
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		{\LARGE\fontsize{26}{26}\selectfont\textbf{\textcolor{maincolor}{Appendici}}\par}
+	}{%
+		{\LARGE\fontsize{26}{26}\selectfont\textbf{\textcolor{maincolor}{Appendices}}\par}
+	}
+	
+	\vspace*{\fill}
+\end{center}
+
+\MediaOptionLogicBlank

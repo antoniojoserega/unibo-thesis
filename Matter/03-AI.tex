@@ -1,0 +1,41 @@
+\ifthenelse{\equal{\AiAckOption}{true}}{%
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		\chapter*{Dichiarazione sull'uso dell'Intelligenza Artificiale}
+		
+		\guideinfo{È buona norma accademica indicare brevemente come, perché e quando è stata utilizzata l'IA. Spiegare le azioni intraprese e le relative motivazioni promuove la riflessione critica e garantisce la massima trasparenza sull'integrità del lavoro. Questa pagina può essere disattivata e rimossa impostando l'opzione \texttt{aiack=false} nel file principale \texttt{UniboMain.tex}.}
+		
+		\vspace{2em}
+		
+		\exampleinfo{%
+			Dichiaro di aver utilizzato ChatGPT (\url{https://chatgpt.com}) per perfezionare il tono accademico e migliorare l'accuratezza linguistica di questo elaborato, inclusi aspetti di grammatica, punteggiatura e vocabolario.
+			
+			\vspace{1em}
+			
+			\noindent\textbf{Esempio di Utilizzo}
+			
+			\prompt[1]{In un paragrafo, descrivi brevemente cos'è LaTeX.}
+			
+			\aioutput[1]{LaTeX è un sistema di composizione tipografica di alta qualità, comunemente utilizzato per produrre documenti scientifici e matematici grazie alla sua potente gestione di formule e bibliografie. A differenza dei classici elaboratori di testo, utilizza file di testo semplice con tag di marcatura per definire la struttura e la formattazione, consentendo un controllo preciso sull'impaginazione. È particolarmente diffuso in ambito accademico per la stesura di tesi, articoli e presentazioni.}
+		}
+	}{%
+		\chapter*{AI Acknowledgement}
+		
+		\guideinfo{It is good academic practice to briefly state how, why, and when AI was used. Explaining both the actions taken and the reasons behind them encourages critical reflection and supports the evaluation of your work's integrity. This page can be removed by setting the option \texttt{aiack=false} in the \texttt{UniboMain.tex} file.}
+		
+		\vspace{2em}
+		
+		\exampleinfo{%
+			I acknowledge the use of ChatGPT (\url{https://chatgpt.com}) to refine the academic tone and improve the linguistic accuracy of this work, including aspects of grammar, punctuation, and vocabulary.
+			
+			\vspace{1em}
+			
+			\noindent\textbf{Description of Use}
+			
+			\prompt[1]{In a paragraph, simply describe what LaTeX is.}
+			
+			\aioutput[1]{LaTeX is a high-quality typesetting system commonly used for producing scientific and mathematical documents due to its powerful handling of formulas and bibliographies. Unlike word processors, it uses plain text files with markup tags to define the structure and formatting of a document, allowing precise control over layout and appearance. It is especially popular in academia and research for creating theses, journal articles, and presentations.}
+		}
+	}
+	
+	\MediaOptionLogicBlank   
+}{}

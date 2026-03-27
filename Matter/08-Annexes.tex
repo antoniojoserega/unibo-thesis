@@ -1,0 +1,29 @@
+%%% Pagina di separazione Allegati / Annexes %%%
+
+% Aggiunge la voce "Allegati" o "Annexes" all'Indice Generale (ToC)
+\ifthenelse{\equal{\LanguageOption}{italian}}{
+	\addtocontents{toc}{\protect\contentsline{chapter}{Allegati}{}{}}
+}{
+	\addtocontents{toc}{\protect\contentsline{chapter}{Annexes}{}{}}
+}
+
+% Imposta il contatore dei capitoli a 11 (di default per far partire le lettere da "L")
+\setcounter{chapter}{11} 
+\MediaOptionLogicAnnexes
+
+\begin{center}
+	\thispagestyle{empty} % Rimuove il numero di pagina
+	
+	\vspace*{\fill}
+	
+	% Titolo gigante al centro della pagina
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		{\LARGE\fontsize{26}{26}\selectfont\textbf{\textcolor{maincolor}{Allegati}}\par}
+	}{%
+		{\LARGE\fontsize{26}{26}\selectfont\textbf{\textcolor{maincolor}{Annexes}}\par}
+	}
+	
+	\vspace*{\fill}
+\end{center}
+
+\MediaOptionLogicBlank

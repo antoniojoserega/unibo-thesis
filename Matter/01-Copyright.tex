@@ -1,0 +1,40 @@
+\pagenumbering{gobble} % Prevent page numbering.
+
+\vspace*{\fill}
+
+\ifthenelse{\equal{\LanguageOption}{italian}}{%
+	\noindent \textbf{\GetTitle}
+	
+	\noindent Copyright \textcopyright~\the\year{} - \GetFirstAuthor, \GetUniversity.
+	
+	\vspace{.575em}
+	
+	\noindent La presente tesi è un lavoro originale, elaborato esclusivamente per il conseguimento del titolo. Tutti gli autori i cui studi o pubblicazioni hanno contribuito alla sua stesura sono stati debitamente citati. È consentita la riproduzione parziale previa indicazione dell'autore e riferimento al corso di studi, all'anno accademico, all'istituzione---\textit{\GetUniversity}---e alla data della discussione pubblica.
+	
+	\vspace{1.395em}
+	
+	\noindent\psvectorian[scale=.25,opacity=.80]{2}
+	
+	\vspace{.935em}
+	
+	\noindent La stesura di questo documento è stata facilitata dall'utilizzo del modello \textit{Unibo-Thesis}.
+}{%
+	\noindent \textbf{\GetTitle}
+	
+	\noindent Copyright \textcopyright~\the\year{} - \GetFirstAuthor, \GetUniversity.
+	
+	\vspace{.575em}
+	
+	\noindent This dissertation is original work, written solely for this purpose, and all the authors whose studies and publications contributed to it have been duly cited. Partial reproduction is allowed with acknowledgment of the author and reference to the degree, academic year, institution---\textit{\GetUniversity}---and public defense date.
+	
+	\vspace{1.395em}
+	
+	\noindent\psvectorian[scale=.25,opacity=.80]{2}
+	
+	\vspace{.935em}
+	
+	\noindent Preparation of this work was facilitated by the use of the \textit{Unibo-Thesis} template.
+}
+
+\vspace*{\fill}
+\MediaOptionLogic

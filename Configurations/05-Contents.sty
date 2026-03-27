@@ -1,15 +1,21 @@
-%%% Custom ToC Entries %%%
+%%% Custom ToC Entries - Unibo Style %%%
+
+% Imposta la profondità dell'indice (quanti sottolivelli mostrare)
+% 1 = Chapter, Section
+% 2 = Chapter, Section, Subsection
+\setcounter{tocdepth}{2}
+
 \newcommand{\bookmarktocentry}{\pdfbookmark[0]{\contentsname}{toc}}
 \ProvideDocumentCommand\MakeLinkTarget{sO{}m}{}
 \patchcmd{\listoffigures}
 {\chapter*{\listfigurename}}
 {\chapter*{\listfigurename}\MakeLinkTarget*{listoffigures}%
-\addcontentsline{toc}{frontmatter}{\listfigurename}}{}{}
+	\addcontentsline{toc}{frontmatter}{\listfigurename}}{}{}
 
 \patchcmd{\listoftables}
 {\chapter*{\listtablename}}
 {\chapter*{\listtablename}\MakeLinkTarget*{listoftables}%
-\addcontentsline{toc}{frontmatter}{\listtablename}}{}{}
+	\addcontentsline{toc}{frontmatter}{\listtablename}}{}{}
 
 \NewCommandCopy\l@frontmatter\l@chapter
 \NewCommandCopy\l@backmatter\l@chapter
@@ -26,24 +32,24 @@
 \defbibheading{bibintoc}{\chapter*{#1}\addcontentsline{toc}{backmatter}{\refname}}
 
 \newcommand{\glossarytoc}{\MakeLinkTarget*{glossary}%
-\addcontentsline{toc}{frontmatter}{\glossaryname}}
+	\addcontentsline{toc}{frontmatter}{\glossaryname}}
 
 \newcommand{\acronymtoc}{\MakeLinkTarget*{acronym}%
-\addcontentsline{toc}{frontmatter}{\acronymname}}
+	\addcontentsline{toc}{frontmatter}{\acronymname}}
 
 \newcommand{\symboltoc}{\MakeLinkTarget*{symbol}%
-\addcontentsline{toc}{frontmatter}{\glssymbolsgroupname}}
+	\addcontentsline{toc}{frontmatter}{\glssymbolsgroupname}}
 
-% Align LoF and LoT entries to the corrected margin and add a prefix (or not).
+% Allinea le voci di LoF e LoT e usa il colore ufficiale dell'Ateneo
 \ifthenelse{\equal{\ListPrefixOption}{true}}{%
-    \renewcommand*\l@figure[2]{\@dottedtocline{1}{0em}{2.3em}{%
-        \textcolor{red!45!black}{\figurename\ \,#1}}{#2}%
-    }
-
-    \renewcommand*\l@table[2]{\@dottedtocline{1}{0em}{2.3em}{%
-        \textcolor{red!45!black}{\tablename\ \,#1}}{#2}%
-    }
+	\renewcommand*\l@figure[2]{\@dottedtocline{1}{0em}{2.3em}{%
+			\textcolor{unibored}{\figurename\ \,#1}}{#2}%
+	}
+	
+	\renewcommand*\l@table[2]{\@dottedtocline{1}{0em}{2.3em}{%
+			\textcolor{unibored}{\tablename\ \,#1}}{#2}%
+	}
 }{
-    \renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}} % Default: 1.5em/2.3em
-    \let\l@table\l@figure
+	\renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}} % Default: 1.5em/2.3em
+	\let\l@table\l@figure
 }

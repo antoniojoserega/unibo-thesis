@@ -28,30 +28,29 @@
 
 %%% Loading of Glossary and Acronyms %%%
 \makeglossaries
-\loadglsentries{Matter/05-Glossary}
-\loadglsentries[\acronymtype]{Matter/06-Acronyms}
-\loadglsentries[\symboltype]{Matter/07-Symbols}
+\loadglsentries{Matter/04-Glossary}
+\loadglsentries[\acronymtype]{Matter/05-Acronyms}
+\loadglsentries[\symboltype]{Matter/06-Symbols}
 
 \begin{document}
 	
 	%%% Front Matter %%%
 	\include{Matter/00-Cover}
-	% \include{Matter/01-Front-Page}
 	
 	%%% Copyright Statement (Opzionale per Unibo) %%%
-	\include{Matter/02-Copyright}
+	\include{Matter/01-Copyright}
 	
 	%%% Roman Numeration %%%
 	\pagenumbering{roman}
 	
 	%%% Acknowledgements (Ringraziamenti) %%%
-	\include{Matter/03-Acknowledgements}
+	\include{Matter/02-Acknowledgements}
 	
 	%%% Abstract (Sommario) %%%
 	\include{Chapters/00-Abstract}
 	
 	%%% AI Acknowledgement (Dichiarazione uso AI) %%%
-	\include{Matter/04-AI}
+	\include{Matter/03-AI}
 	
 	%%% Table of Contents, List of Figures and List of Tables %%%
 	\bookmarktocentry\tableofcontents
@@ -77,12 +76,12 @@
 	
 	%%% Appendices: Work that *YOU* Developed %%%
 	\appendix
-	% \input{Matter/08-Appendices}
-	% \input{Chapters/Appendices/00-AppendixA}
+	\input{Matter/07-Appendices}
+	\input{Chapters/Appendices/00-AppendixA}
 	% \input{Chapters/Appendices/01-AppendixB}
 	
 	%%% Annexes: Work that *YOU DID NOT* Develop %%%
-	% \input{Matter/09-Annexes}
-	% \input{Chapters/Annexes/00-AnnexA}
+	\input{Matter/08-Annexes}
+	\input{Chapters/Annexes/00-AnnexA}
 	
 \end{document}
