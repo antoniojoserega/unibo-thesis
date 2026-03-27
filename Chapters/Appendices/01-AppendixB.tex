@@ -1,5 +1,16 @@
-% Recommended dimensions for a landscape layout; adjust as needed.
+% Dimensioni raccomandate per un layout orizzontale; modifica se necessario.
+% Attualmente impostato su un formato A3 orizzontale (297mm x 420mm).
 \begin{landscapemode}{297mm}{420mm}
-    \chapter{Showcasing the Second Appendix}
-    \blindtext[5]
+	
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		\chapter{Titolo della seconda appendice (Orizzontale)}
+		\guideinfo{Questa appendice dimostra l'utilizzo dell'ambiente \texttt{landscapemode}. È estremamente utile per inserire contenuti molto larghi che non entrerebbero in una normale pagina verticale, come ad esempio diagrammi di Gantt complessi, planimetrie architettoniche, schemi di circuiti o tabelle ricche di colonne. Il lettore PDF ruoterà automaticamente questa pagina per facilitarne la lettura a schermo.}
+	}{%
+		\chapter{Showcasing the second appendix (Landscape)}
+		\guideinfo{This appendix demonstrates the use of the \texttt{landscapemode} environment. It is extremely useful for inserting very wide content that would not fit on a standard portrait page, such as complex Gantt charts, architectural floor plans, network diagrams, or tables with many columns. The PDF reader will automatically rotate this page to facilitate on-screen reading.}
+	}
+	
+	% Testo riempitivo per mostrare l'effetto. Cancellalo e inserisci le tue tabelle/immagini larghe.
+	\blindtext[5]
+	
 \end{landscapemode}

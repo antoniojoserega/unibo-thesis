@@ -1,2 +1,11 @@
-\chapter{Showcasing the First Annex}
-\guideinfo{Annexes are supplementary sections in a dissertation that provide additional information or external documents not essential to the main arguments but that support or complement the research. Unlike appendices, \textbf{annexes generally contain material that was not developed by the author}, such as reports, legal documents, or published datasets from external sources. This information is placed separately to keep the main content concise, allowing readers access to relevant external references without disrupting the dissertation's flow.}
+\ifthenelse{\equal{\LanguageOption}{italian}}{%
+	\chapter{Titolo del primo allegato}
+	\guideinfo{Gli allegati sono sezioni supplementari di una tesi che forniscono informazioni aggiuntive o documenti esterni. Non sono essenziali per la comprensione del testo principale, ma supportano e integrano la ricerca. A differenza delle appendici, \textbf{gli allegati contengono generalmente materiale che NON è stato sviluppato dall'autore}, come report aziendali, documenti legali, estratti conto, normative, planimetrie catastali o dataset pubblicati da fonti esterne. Queste informazioni vengono inserite alla fine per mantenere il testo principale scorrevole e conciso.}
+}{%
+	\chapter{Title of the first annex}
+	\guideinfo{Annexes are supplementary sections in a dissertation that provide additional information or external documents not essential to the main arguments but that support or complement the research. Unlike appendices, \textbf{annexes generally contain material that was not developed by the author}, such as reports, legal documents, or published datasets from external sources. This information is placed separately to keep the main content concise, allowing readers access to relevant external references without disrupting the dissertation's flow.}
+}
+
+% --- Inserisci qui il contenuto del tuo allegato ---
+% Puoi includere PDF esterni di più pagine usando il pacchetto pdfpages
+% Esempio: \includepdf[pages=-]{Figures/normativa_tecnica.pdf}
