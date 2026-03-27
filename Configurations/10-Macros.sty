@@ -59,14 +59,24 @@
 }
 
 % --- Landscape Mode ---
-% Landscape mode - the proper way (LuaLaTeX compatible)!
+% Landscape mode - compatibile con XeLaTeX e LuaLaTeX!
 \def\ifGm@preamble#1{\@firstofone}
 \appto\restoregeometry{%
+	\ifdefined\pagewidth
 	\pagewidth=\paperwidth
-	\pageheight=\paperheight}
+	\pageheight=\paperheight
+	\else
+	\pdfpagewidth=\paperwidth
+	\pdfpageheight=\paperheight
+	\fi}
 \apptocmd\newgeometry{%
+	\ifdefined\pagewidth
 	\pagewidth=\paperwidth
-	\pageheight=\paperheight}{}{}
+	\pageheight=\paperheight
+	\else
+	\pdfpagewidth=\paperwidth
+	\pdfpageheight=\paperheight
+	\fi}{}{}
 \newenvironment{landscapemode}[2]{%
 	\newgeometry{paperwidth=#1,paperheight=#2,hmargin=3cm,vmargin=5cm,top=3cm,landscape}
 	\fancyheadoffset{0pt}

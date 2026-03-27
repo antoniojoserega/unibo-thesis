@@ -1,210 +1,163 @@
-\chapter[Comprehensive User Guide: Instructions for Using the Template]{Comprehensive User Guide Instructions for Using the Template}
+\ifthenelse{\equal{\LanguageOption}{italian}}{%
+	\chapter[Guida all'Uso: Istruzioni per l'utilizzo del Template]{Guida all'Uso\\Istruzioni per l'utilizzo del Template}
+}{%
+	\chapter[Comprehensive User Guide: Instructions for Using the Template]{Comprehensive User Guide\\Instructions for Using the Template}
+}
 \label{cp:user-guide}
 
-If you plan to use this template, please read this chapter carefully. It provides all the information you need to effectively use the template, including the mandatory modifications (\textit{e.g.}, title, subtitle, author information) and other configurations that, while not highly recommended, are optional. The template comprises various directories and files, including a total of seven distinct directories and dozens of files. Among these, the most important are \texttt{IPLeiriaMain.tex} and \texttt{IPLeiriaThesis.cls}. Below, \autoref{tab:file-structure} presents the different directories available, along with their descriptions and a check-mark indicating whether you need to access the directory to make changes. Of course, the check mark indicates that you can make changes to the content, while a hyphen signifies that you should not modify it.
-
-\begin{table}[!htpb]
-    \setlength{\extrarowheight}{2pt}
-    \caption[Directory structure and file organisation]{Overview of the directory structure in this template.}
-    \label{tab:file-structure}
-    \begin{tabularx}{\textwidth}{lcX}
-        \toprule
-        \\[-1.5\normalbaselineskip]
-        \textbf{Directory} & \textbf{Modifiable} & \textbf{Description} \\ [0em]
-        \midrule
-        \textit{Bibliography} & $\checkmark$ & This folder contains the bibliography file used to manage references throughout the document. \\
-        \textit{Chapters} & $\checkmark$ & Individual chapters of the thesis are organised in this directory, making it easy to work on sections separately. \\
-        \textit{Code} & $\checkmark$ & Code examples and relevant scripts are stored here, supporting the content of the thesis. \\
-        \textit{Configurations} & - & All configuration files required for the template, such as layout and style settings, are placed in this directory. \\
-        \textit{Figures} & $\checkmark$ & All figures and images referenced within the document are stored in this folder for easy access and management. \\
-        \textit{Matter} & - & The front matter of the document, including the cover page, copyright statement, and glossary, is assembled in this directory. \\
-        \textit{Metadata} & $\checkmark$ & This folder holds the metadata file, where key document details such as the author, title, and supervisor can be customised. \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
-
-It is crucial to note that the files are organised according to a specific naming convention, which must be \textbf{respected} and \textbf{maintained}. The naming convention consists of an ascending two-digit numeric value, followed by a hyphen, and then the file name in capital letters. The name should always aim to be a single word. If more than one word is necessary, they should be separated by a hyphen and capitalised.
-
-\begin{block}[note]
-While \autoref{tab:file-structure} indicates that the \textit{Matter} directory is not modifiable, two files within that directory should be altered when necessary: \texttt{04-Glossary.tex} and \texttt{05-Acronyms.tex}. Although the names are fairly self-explanatory, these files should contain the glossary and acronyms entries, respectively.
-\end{block}
-
-The two files mentioned earlier, \texttt{IPLeiriaMain.tex} and \texttt{IPLeiriaThesis.cls}, should be used with caution. The main file, as the name suggests, is the master file where you will add the necessary chapters to be included in your work. The class file, on the other hand, requires even more caution, and it is not recommended to alter it.
-
-\section{Template and Class Options}
-\label{sec:class-options}
-The first thing you need to do is specify the options within the \texttt{IPLeiriaMain.tex} file. How do you do that? It's simple. On the very first line, you will find a \texttt{documentclass} command that loads the custom class for this template. In this call, you can pass the options you need. The available options, presented in a key-argument style, are listed in \autoref{tab:template-options}.
-
-{
-\setlength{\extrarowheight}{-1.75pt}
-\begin{xltabular}{\textwidth}{lX}
-\caption{Class options supported by the template.}
-\label{tab:template-options} \\
-%
-\toprule 
-\multicolumn{1}{l}{\textbf{Options}} & \multicolumn{1}{l}{\textbf{Description}} \\ 
-\midrule
-\endfirsthead
-%
-\multicolumn{2}{c}%
-{{\textit{\bfseries Table \thetable\ continued from previous page.}}} \\
-%
-\toprule 
-\multicolumn{1}{l}{\textbf{Options}} & \multicolumn{1}{l}{\textbf{Description}} \\ 
-\midrule
-\endhead
-%
-\bottomrule
-\addlinespace[1mm]
-\multicolumn{2}{r}%
-{{\textit{Continued on the next page.}}} \\
-\endfoot
-\bottomrule
-\endlastfoot
-
-\textbf{school=OPT} & \textbf{Choosing a school and its corresponding logo.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{estg, esecs, esslei, esad, estm, utnfrba}}} & \footnotesize{\textit{$\Rightarrow$ Default: school=estg}} \\
-& \footnotesize{\textit{This option only modifies the school name and the corresponding logo, which will be displayed on the cover and front page.}} \\[1.70em]
-
-\textbf{language=OPT} & \textbf{Language preference selection.} \\
-\footnotesize{\textit{portuguese, english, spanish}} & \footnotesize{\textit{$\Rightarrow$ Default: language=english}} \\[0.85em]
-        
-\textbf{chapterstyle=OPT} & \textbf{Selection of a cover design style.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{classic, modern, fancy}}} & \footnotesize{\textit{$\Rightarrow$ Default: chapterstyle=classic}} \\
-& \footnotesize{\textit{This option modifies the appearance of the chapter, including its title and numbering style. Explore the available styles and apply the one you prefer.}} \\[1.70em]
-
-\textbf{coverstyle=OPT} & \textbf{Choosing a style for the chapter.} \\
-\multirow[t]{3}{*}{\footnotesize{\textit{classic, bw}}} & \footnotesize{\textit{$\Rightarrow$ Default: coverstyle=classic}} \\
-& \footnotesize{\textit{classic $\rightarrow$ Put the cover on in the original red.}} \\
-& \footnotesize{\textit{bw $\rightarrow$ Make the cover black and white.}} \\
-
-\textbf{docstage=OPT} & \textbf{Choosing a stage for you document.} \\
-\multirow[t]{3}{*}{\footnotesize{\textit{final, working}}} & \footnotesize{\textit{$\Rightarrow$ Default: docstage=final}} \\
-& \footnotesize{\textit{final $\rightarrow$ Assumes this is the final version of the document.}} \\
-& \footnotesize{\textit{working $\rightarrow$ It assumes the document is a work in progress.}} \\[.3em]
-
-\textbf{media=OPT} & \textbf{Project media type.} \\
-\multirow[t]{3}{*}{\footnotesize{\textit{paper, screen}}} & \footnotesize{\textit{$\Rightarrow$ Default: media=paper}} \\
-& \footnotesize{\textit{paper $\rightarrow$ Blank pages will appear between sections.}} \\
-& \footnotesize{\textit{screen $\rightarrow$ Blank pages will not appear between sections.}} \\[.3em]
-
-\textbf{linkcolor=OPT} & \textbf{Main theme color.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{color}}} & \footnotesize{\textit{$\Rightarrow$ Default: linkcolor=red!45!black}} \\
-& \footnotesize{\textit{This option requires a valid color name. Refer to the xcolor manual (subsection 4.2) to select a valid color.}} \\[.3em]
-
-\textbf{bookprint=OPT} & \textbf{For book printing.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{true, false}}} & \footnotesize{\textit{$\Rightarrow$ Default: bookprint=false}} \\
-& \footnotesize{\textit{This option adds a binding margin on odd-numbered pages to allow for printing, as it increases the left margin.}} \\[.3em]
-
-\textbf{aiacknowledgement=OPT} & \textbf{AI acknowledgement print.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{true, false}}} & \footnotesize{\textit{$\Rightarrow$ Default: aiacknowledgement=true}} \\
-& \footnotesize{\textit{This option adds a section intended for the user to insert their acknowledgement of AI usage.}} \\[.3em]
-
-\textbf{listprefix=OPT} & \textbf{Add a prefix to LoF and LoT.} \\
-\multirow[t]{2}{*}{\footnotesize{\textit{true, false}}} & \footnotesize{\textit{$\Rightarrow$ Default: listprefix=false}} \\
-& \footnotesize{\textit{This options adds the prefix ``Figure'' or ``Table'' to both the LoF and LoT when enabled.}} \\
-\end{xltabular}
+\ifthenelse{\equal{\LanguageOption}{italian}}{%
+	Se hai scelto di utilizzare questo template per la tua tesi all'Università di Bologna, questo capitolo è fondamentale. Ti spiegherà la struttura delle cartelle, come personalizzare i tuoi dati (nome, matricola, titolo) e come utilizzare le funzioni avanzate che abbiamo preparato per te.
+	
+	Il template è diviso in diverse cartelle logiche. Il file principale che ``dirige'' tutto il documento si chiama \texttt{UniboMain.tex}. Nella \autoref{tab:file-structure-it} trovi una panoramica della struttura: la spunta ($\checkmark$) indica le cartelle dove andrai a lavorare, mentre il trattino (-) indica i file di sistema che non dovresti modificare.
+	
+	\begin{table}[!htpb]
+		\setlength{\extrarowheight}{2pt}
+		\caption[Struttura delle cartelle e organizzazione dei file]{Panoramica della struttura delle cartelle del template.}
+		\label{tab:file-structure-it}
+		\begin{tabularx}{\textwidth}{lcX}
+			\toprule
+			\\[-1.5\normalbaselineskip]
+			\textbf{Cartella} & \textbf{Modificabile} & \textbf{Descrizione} \\ [0em]
+			\midrule
+			\textit{Bibliography} & $\checkmark$ & Contiene il file \texttt{.bib} usato per gestire la bibliografia. \\
+			\textit{Chapters} & $\checkmark$ & Qui inserirai i singoli capitoli della tua tesi. \\
+			\textit{Configurations} & - & Contiene i file \texttt{.sty} (font, colori, macro) che fanno funzionare il template. \\
+			\textit{Figures} & $\checkmark$ & Salva qui tutte le immagini, grafici e loghi. \\
+			\textit{Matter} & - & Contiene le parti fisse come la Copertina e l'indice. \\
+			\textit{Metadata} & $\checkmark$ & Contiene il file in cui inserirai il tuo nome, titolo e relatore. \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	È fondamentale rispettare la convenzione di nomenclatura dei file: usa sempre un numero progressivo a due cifre seguito da un trattino e dal nome del file (es. \texttt{01-Introduzione.tex}).
+	
+	\section{Personalizzazione dei Dati (Metadata)}
+	\label{sec:metadata-it}
+	La prima cosa da fare è aprire il file \texttt{Metadata/Metadata.tex}. Qui troverai un elenco di comandi dove potrai inserire i tuoi dati personali, il titolo della tesi, il nome del relatore e l'Anno Accademico.
+	
+	\begin{block}[note]
+		La copertina si formatterà automaticamente in base ai dati che inserirai in questo file. Se un campo non ti serve (ad esempio il correlatore), ti basterà commentare o svuotare la riga relativa in \texttt{Metadata.tex}.
+	\end{block}
+	
+	\section{Inserimento dei Capitoli}
+	Per aggiungere un nuovo capitolo alla tua tesi:
+	\begin{enumerate}
+		\item Crea un nuovo file \texttt{.tex} nella cartella \textit{Chapters} (es. \texttt{03-Stato-Arte.tex}).
+		\item Apri il file \texttt{UniboMain.tex}.
+		\item Scorri fino alla sezione intitolata \texttt{\%\%\% Chapters \%\%\%} e aggiungi il comando \texttt{\textbackslash include\{Chapters/03-Stato-Arte\}}.
+	\end{enumerate}
+	
+	\section{Blocchi e Avvisi (Callouts)}
+	Questo template include una funzione esclusiva per inserire dei ``blocchi'' colorati, molto utili per evidenziare definizioni, teoremi o semplici note. Per inserire un blocco, usa l'ambiente \texttt{\textbackslash begin\{block\}[tipo]} dove \texttt{tipo} può essere \texttt{note}, \texttt{tip}, \texttt{warning} o \texttt{todo}.
+	
+	Ecco un esempio visivo di come appariranno nel PDF:
+	
+	\vspace{.875em}
+	\begin{tcbraster}[
+		raster columns=2,
+		raster equal height,
+		nobeforeafter,
+		raster column skip=1cm
+		]
+		\begin{block}[todo]
+			Questo è un blocco ``To-Do'' (Da fare). Ottimo per segnarti appunti in fase di bozza.
+		\end{block}
+		\begin{block}[tip]
+			Questo è un blocco ``Tip'' (Suggerimento). Utile per evidenziare una best-practice.
+		\end{block}
+	\end{tcbraster}
+	
+	\begin{tcbraster}[
+		raster columns=2,
+		raster equal height,
+		nobeforeafter,
+		raster column skip=1cm
+		]
+		\begin{block}[warning]
+			Questo è un blocco ``Warning'' (Attenzione). Per evidenziare limitazioni o criticità.
+		\end{block}
+		\begin{block}[note]
+			Questo è un blocco ``Note'' (Nota). Perfetto per definizioni e corollari.
+		\end{block}
+	\end{tcbraster}
+	\vspace{.875em}
+	
+}{%
+	If you plan to use this template for your University of Bologna thesis, please read this chapter carefully. It explains the directory structure, how to customize your metadata (name, student ID, title), and how to use the advanced features provided.
+	
+	The template is divided into several logical directories. The main file that ``directs'' the entire document is called \texttt{UniboMain.tex}. \autoref{tab:file-structure-en} provides an overview of the structure: the check-mark ($\checkmark$) indicates folders you will work in, while the hyphen (-) indicates system files you shouldn't modify.
+	
+	\begin{table}[!htpb]
+		\setlength{\extrarowheight}{2pt}
+		\caption[Directory structure and file organisation]{Overview of the directory structure in this template.}
+		\label{tab:file-structure-en}
+		\begin{tabularx}{\textwidth}{lcX}
+			\toprule
+			\\[-1.5\normalbaselineskip]
+			\textbf{Directory} & \textbf{Modifiable} & \textbf{Description} \\ [0em]
+			\midrule
+			\textit{Bibliography} & $\checkmark$ & Contains the \texttt{.bib} file used to manage references. \\
+			\textit{Chapters} & $\checkmark$ & Individual thesis chapters are stored here. \\
+			\textit{Configurations} & - & Contains the \texttt{.sty} files (fonts, colours, macros) that run the template. \\
+			\textit{Figures} & $\checkmark$ & Save all your images, charts, and logos here. \\
+			\textit{Matter} & - & Contains fixed parts like the Cover page and TOC. \\
+			\textit{Metadata} & $\checkmark$ & Contains the file where you will insert your name, title, and supervisor. \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+	
+	It is crucial to respect the file naming convention: always use an ascending two-digit number followed by a hyphen and the file name (e.g., \texttt{01-Introduction.tex}).
+	
+	\section{Metadata Customisation}
+	\label{sec:metadata-en}
+	The first step is to open the \texttt{Metadata/Metadata.tex} file. Here you will find commands to insert your personal data, thesis title, supervisor name, and Academic Year.
+	
+	\begin{block}[note]
+		The cover page will automatically format itself based on the data you enter in this file. If you don't need a specific field (like a co-supervisor), simply comment out or empty the relevant line in \texttt{Metadata.tex}.
+	\end{block}
+	
+	\section{Custom Chapter Insertion}
+	To add a new chapter to your thesis:
+	\begin{enumerate}
+		\item Create a new \texttt{.tex} file in the \textit{Chapters} directory (e.g., \texttt{03-State-of-the-Art.tex}).
+		\item Open the \texttt{UniboMain.tex} file.
+		\item Scroll down to the \texttt{\%\%\% Chapters \%\%\%} section and add the command \texttt{\textbackslash include\{Chapters/03-State-of-the-Art\}}.
+	\end{enumerate}
+	
+	\section{Custom Blocks (Callouts)}
+	This template includes an exclusive feature for inserting coloured ``blocks,'' which are very useful for highlighting definitions, theorems, or simple notes. To insert a block, use the environment \texttt{\textbackslash begin\{block\}[type]} where \texttt{type} can be \texttt{note}, \texttt{tip}, \texttt{warning}, or \texttt{todo}.
+	
+	Here is a visual example of how they will look in the PDF:
+	
+	\vspace{.875em}
+	\begin{tcbraster}[
+		raster columns=2,
+		raster equal height,
+		nobeforeafter,
+		raster column skip=1cm
+		]
+		\begin{block}[todo]
+			This is a ``To-Do'' block. Great for noting things during the drafting phase.
+		\end{block}
+		\begin{block}[tip]
+			This is a ``Tip'' block. Useful for highlighting best practices.
+		\end{block}
+	\end{tcbraster}
+	
+	\begin{tcbraster}[
+		raster columns=2,
+		raster equal height,
+		nobeforeafter,
+		raster column skip=1cm
+		]
+		\begin{block}[warning]
+			This is a ``Warning'' block. Used to highlight limitations or critical issues.
+		\end{block}
+		\begin{block}[note]
+			This is a ``Note'' block. Perfect for definitions and corollaries.
+		\end{block}
+	\end{tcbraster}
+	\vspace{.875em}
 }
 
-After setting the desired options in the main class, you are all set to personalise the metadata. To learn how, simply refer to \autoref{sec:metadata}.
-
-\section{Metadata Customisation}
-\label{sec:metadata}
-While options like language and school can be passed as arguments to the main class, other options, such as author and title, must be defined manually. Since this template supports a wide range of metadata options, a dedicated file is provided for this purpose. The file at \texttt{Metadata/Metadata.tex} lists metadata variables, with comments on whether they are mandatory. Comment out the variables to omit them. \autoref{tab:metadata} includes all metadata variables, their GET command, and if they are mandatory. The GET command automatically retrieves the information from the stored variable.
-
-\begin{longtable}[c]{llc}
-\caption{Metadata variables within the template.}
-\label{tab:metadata} \\
-\toprule
-\textbf{Variable} & \textbf{Macro Commands} & \textbf{Mandatory} \\ \midrule
-\endfirsthead
-%
-\multicolumn{3}{c}%
-{{\textit{\bfseries Table \thetable\ continued from previous page.}}} \\
-%
-\toprule
-\textbf{Variable} & \textbf{Macro Commands} & \textbf{Mandatory} \\ \midrule
-\endhead
-%
-\bottomrule
-%
-\addlinespace[1mm]
-\multicolumn{3}{r}%
-{{\textit{Continued on the next page.}}} \\
-\endfoot
-%
-\bottomrule
-%
-\endlastfoot
-%
-Title            & \verb|\GetTitle|         & $\checkmark$ \\
-Subtitle         & \verb|\GetSubtitle|      & $\checkmark$ \\
-University       & \verb|\GetUniversity|    & $\checkmark$ \\
-School           & \verb|\GetSchool|        & $\checkmark$ \\
-Department       & \verb|\GetDepartment|    & $\checkmark$ \\
-Degree           & \verb|\GetDegree|        & $\checkmark$ \\
-Course           & \verb|\GetCourse|        & -            \\
-Local and date   & \verb|\GetDate|          & $\checkmark$  \\ 
-Academic year    & \verb|\GetAcademicYear|  & $\checkmark$ \\ 
-
-Thesis type (\scriptsize{\textit{Dissertation, Project or Internship}}) & \verb|\GetThesisType| & $\checkmark$ \\
-
-First author name           & \verb|\GetFirstAuthor|        & $\checkmark$ \\
-First author identification & \verb|\GetFirstAuthorNumber|  & $\checkmark$ \\ 
-
-Second author name           & \verb|\GetSecondAuthor|          & - \\
-Second author identification & \verb|\GetSecondAuthorNumber|    & - \\ 
-
-Third author name           & \verb|\GetThirdAuthor|        & - \\
-Third author identification & \verb|\GetThirdAuthorNumber|  & - \\ 
-
-Supervisor name                  & \verb|\GetSupervisor|        & $\checkmark$ \\
-Supervisor e-mail                & \verb|\GetSupervisorMail|    & $\checkmark$ \\
-Supervisor title and affiliation & \verb|\GetSupervisorTitle|   & $\checkmark$ \\ 
-
-Co-supervisor name                  & \verb|\GetCoSupervisor|       & - \\
-Co-supervisor e-mail                & \verb|\GetCoSupervisorMail|   & - \\
-Co-supervisor title and affiliation & \verb|\GetCoSupervisorTitle|  & - \\ 
-
-Second co-supervisor name                   & \verb|\GetSecCoSupervisor|      & - \\
-Second co-supervisor e-mail                 & \verb|\GetSecCoSupervisorMail|  & - \\
-Second co-supervisor title and affiliation  & \verb|\GetSecCoSupervisorTitle| & - \\
-\end{longtable}
-
-If, by any chance, \textbf{you want to add more options}, please contact me by opening an issue in the official GitHub repository or via the email provided in this document.
-
-\section{Custom Chapter Insertion}
-As stated before, to use this template, you need to do three things: set the appropriate options in the document class (see \autoref{sec:class-options}), update the document metadata (see \autoref{sec:metadata}), and create and import your custom chapters. To create and import a custom chapter, follow these steps: \(i\) create a TeX file in the Chapters directory that follows the predefined naming convention and \(ii)\) include it in the main file using the command \verb|\include{CHAPTER}|. And voilà, your first chapter is ready!
-
-\section{Custom Commands}
-Within this template, some custom commands are also available for your use. For example, if you are writing your thesis and want to add a to-do note, you can easily insert a block with the option \verb|todo|, as follows: \verb|\begin{block}[todo]|. This will insert a to-do block with a style similar to Markdown. Other available options are: \verb|tip|, \verb|warning|, and \verb|note|. Below is a visual example for each one.
-
-\vspace{.875em}
-\begin{tcbraster}[
-    raster columns=2, 
-    raster equal height, 
-    nobeforeafter, 
-    raster column skip=1cm
-]
-\begin{block}[todo]
-    This is a to-do block.
-\end{block}
-\begin{block}[tip]
-    This is a tip block.
-\end{block}
-\end{tcbraster}
-
-\begin{tcbraster}[
-    raster columns=2, 
-    raster equal height, 
-    nobeforeafter, 
-    raster column skip=1cm
-]
-\begin{block}[warning]
-    This is a warning block.
-\end{block}
-\begin{block}[note]
-    This is a note block.
-\end{block}
-\end{tcbraster}
-\vspace{.875em}
+\MediaOptionLogicBlank
