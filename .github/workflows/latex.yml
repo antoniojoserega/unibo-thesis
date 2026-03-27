@@ -1,33 +1,45 @@
 name: Build LaTeX Document
 on:
-  push:
-    paths-ignore:
-      - '**/README.md'
-      - '**/LICENSE'
-      - '**/.gitignore'
-      - '**/.gitattributes'
-      - '**/Makefile'
-      - 'Assets/**'
-  pull_request:
-    paths-ignore:
-        - '**/README.md'
-        - '**/LICENSE'
-        - '**/.gitignore'
-        - '**/.gitattributes'
-        - '**/Makefile'
-        - 'Assets/**'
+push:
+paths-ignore:
+- '**/README.md'
+- '**/LICENSE'
+- '**/.gitignore'
+- '**/.gitattributes'
+- '**/Makefile'
+- 'Assets/**'
+pull_request:
+paths-ignore:
+- '**/README.md'
+- '**/LICENSE'
+- '**/.gitignore'
+- '**/.gitattributes'
+- '**/Makefile'
+- 'Assets/**'
 jobs:
-  build_latex:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Git Repository
-        uses: actions/checkout@v4
-      - name: LaTeX Document Compilation
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: UniboMain.tex
-          latexmk_use_lualatex: true
-          latexmk_shell_escape: true
-          extra_fonts: |
-            ./Configurations/Fonts/*.ttf
-            ./Configurations/Fonts/*.otf
+build_latex:
+runs-on: ubuntu-latest
+steps:
+- name: Setup Git Repository
+uses: actions/checkout@v4
+
+- name: Install System Fonts and Dependencies
+run: |
+sudo apt-get update
+sudo apt-get install -y \
+texlive-fonts-extra \
+texlive-fonts-recommended \
+fonts-liberation \
+fonts-dejavu \
+fonts-lato \
+fonts-ebgaramond
+
+- name: LaTeX Document Compilation
+uses: xu-cheng/latex-action@v3
+with:
+root_file: UniboMain.tex
+latexmk_use_lualatex: true
+latexmk_shell_escape: true
+extra_fonts: |
+./Configurations/Fonts/*.ttf
+./Configurations/Fonts/*.otf
