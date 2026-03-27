@@ -1,21 +1,26 @@
-%%% Tables %%%
+%%% Tables, Captions and Lists (Tabelle, Didascalie e Liste) %%%
+
+% --- Formattazione Tabelle ---
+% Imposta un'altezza della riga leggermente maggiore (1.1) e un font più piccolo per le tabelle
 \newcommand{\customtableformatting}{\renewcommand{\arraystretch}{1.1}\small}
-\AtBeginEnvironment{tabular}{\customtableformatting} % Apply to tabular.
-\AtBeginEnvironment{tabularx}{\customtableformatting} % Apply to tabularx.
-\preto\longtable{\customtableformatting} % Apply to longtable.
+\AtBeginEnvironment{tabular}{\customtableformatting} % Applica all'ambiente standard tabular
+\AtBeginEnvironment{tabularx}{\customtableformatting} % Applica all'ambiente dinamico tabularx
+\preto\longtable{\customtableformatting} % Applica all'ambiente longtable (tabelle su più pagine)
 
-\renewcommand\tabularxcolumn[1]{m{#1}}
-\newcolumntype{C}{>{\centering\arraybackslash}X} % Center the 'X' command in tabularx.
-\newcolumntype{L}{>{\raggedright\arraybackslash}X} % Left the 'X' command in tabularx.
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X} % Right the 'X' command in tabularx.
+% Definizione di nuove colonne per l'ambiente tabularx (si adattano alla larghezza della pagina)
+\renewcommand\tabularxcolumn[1]{m{#1}} % Allinea il testo verticalmente al centro della cella
+\newcolumntype{C}{>{\centering\arraybackslash}X} % Colonna 'X' centrata
+\newcolumntype{L}{>{\raggedright\arraybackslash}X} % Colonna 'X' allineata a sinistra
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X} % Colonna 'X' allineata a destra
 
-%%% Captions %%%
-\captionsetup{skip=6pt} % Whitespace between figures/tables and the caption.
+% --- Formattazione Didascalie (Captions) ---
+\captionsetup{skip=6pt} % Spazio bianco generale tra la figura/tabella e la didascalia
 \captionsetup{
-    labelfont={bf,small},
-    textfont={it,small}
-} % Caption font style.
-\captionsetup[table]{skip=4pt}
+	labelfont={bf,small}, % Formato dell'etichetta (es. "Figura 1:" in grassetto e piccolo)
+	textfont={it,small}   % Formato del testo della didascalia (corsivo e piccolo)
+} 
+\captionsetup[table]{skip=4pt} % Spazio specifico per le didascalie delle tabelle (che di solito vanno sopra)
 
-%%% Lists %%%
-\setlist{noitemsep} % Customise spacing around and inside lists.
+% --- Formattazione Liste ---
+% Richiede il pacchetto enumitem (caricato nel file Packages)
+\setlist{noitemsep} % Rimuove lo spazio extra tra gli elementi di un elenco puntato/numerato per un look più compatto

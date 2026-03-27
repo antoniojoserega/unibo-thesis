@@ -1,9 +1,14 @@
-%%% Glossary and Acronyms %%%
-\setglossarystyle{long} % Glossary style.
-\setlength\LTleft{-6pt} % Left margin.
-\setlength\LTright{0pt} % Right margin.
-\setlength\glsdescwidth{0.94\hsize} % Glossary description width.
+%%% Glossary and Acronyms (Glossario e Acronimi) %%%
 
-\renewcommand{\glsnamefont}[1]{\textbf{#1}} % Notation in bold.
-\renewcommand{\glossaryentrynumbers}[1]%
-{\textit{(p. \textcolor{maincolor}{#1})}} % Page number customisation.
+\setglossarystyle{long} % Stile del glossario (impostato come tabella lunga a due colonne)
+\setlength\LTleft{-6pt} % Margine sinistro della tabella
+\setlength\LTright{0pt} % Margine destro della tabella
+\setlength\glsdescwidth{0.94\hsize} % Larghezza della colonna con la descrizione del termine
+
+\renewcommand{\glsnamefont}[1]{\textbf{#1}} % Formatta la sigla o il termine in grassetto
+
+% Personalizzazione dei numeri di pagina accanto alle voci del glossario
+% Usa "p." (valido sia per "page" che per "pagina") e applica il colore primario (Unibo Red) al numero
+\renewcommand{\glossaryentrynumbers}[1]{%
+	\textit{(p. \textcolor{maincolor}{#1})}%
+}

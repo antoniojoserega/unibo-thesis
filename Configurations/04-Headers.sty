@@ -1,31 +1,36 @@
-%%% Header and Footer %%%
-\usepackage{fancyhdr} % For custom headers and footers.
-\usepackage[bottom,hang]{footmisc} % Align footnotes to the bottom.
-\pagestyle{fancy} \fancyhf{} % Clear default header and footer style.
-\renewcommand{\headrulewidth}{.3pt} % Set a thin line for the header rule.
-\setlength{\footnotemargin}{6pt} % Set margin space for footnotes.
+%%% Header and Footer (Intestazioni e Piè di pagina) %%%
 
+\usepackage{fancyhdr} % Per personalizzare intestazioni e piè di pagina
+\usepackage[bottom,hang]{footmisc} % Allinea le note a piè di pagina sempre in basso
+
+\pagestyle{fancy} 
+\fancyhf{} % Pulisce gli stili predefiniti di intestazione e piè di pagina
+\renewcommand{\headrulewidth}{.3pt} % Imposta una linea sottile di separazione per l'intestazione
+\setlength{\footnotemargin}{6pt} % Imposta lo spazio di margine per le note a piè di pagina
+
+% Formattazione dei nomi di capitoli e sezioni nell'intestazione
 \renewcommand{\chaptermark}[1]{\markboth{\textit{\thechapter. #1}}{}}
 \renewcommand{\sectionmark}[1]{\markright{\textit{\thesection. #1}}}
 
-% Dynamic section or chapter name in the header.
+% Nome dinamico della sezione o del capitolo nell'intestazione
+% OLH = Odd Left Header (Sinistra Pagine Dispari), ERH = Even Right Header (Destra Pagine Pari)
 \fancyhead[OLH]{\ifnum\value{section}=0\leftmark\else\rightmark\fi\vspace{3pt}}
 \fancyhead[ERH]{\leftmark\vspace{3pt}}
-\fancyhead[ORH,ELH]{\thepage\vspace{3pt}}
+\fancyhead[ORH,ELH]{\thepage\vspace{3pt}} % Numeri di pagina ai lati esterni (Destra dispari, Sinistra pari)
 
-% Style for plain pages (e.g., chapter starting pages).
+% Stile per le pagine "plain" (es. la prima pagina di inizio di ogni capitolo)
 \fancypagestyle{plain}{%
-    \fancyhf{} % Clear header and footer.
-    \renewcommand{\headrulewidth}{0pt} % Remove header rule.
-    \fancyfoot[ORF,ELF]{\thepage\vspace{3pt}} % Place page number at the bottom.
-
-    % Add the document version to the footer of the document.
-    \ifthenelse{\equal{\DocStageOption}{working}}{
-        \fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}
-    }{}
+	\fancyhf{} % Pulisce intestazione e piè di pagina
+	\renewcommand{\headrulewidth}{0pt} % Rimuove la linea dell'intestazione in queste pagine
+	\fancyfoot[ORF,ELF]{\thepage\vspace{3pt}} % Posiziona il numero di pagina in basso ai lati esterni
+	
+	% Se il documento è impostato su "working" (bozza), aggiunge versione e data al centro del piè di pagina
+	\ifthenelse{\equal{\DocStageOption}{working}}{
+		\fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}
+	}{}
 }
 
-% Add the document version to the footer of the document.
+% Applica la stessa logica del piè di pagina "working" anche alle pagine normali (fancy)
 \ifthenelse{\equal{\DocStageOption}{working}}{%
-    \fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}%
+	\fancyfoot[OCF,ECF]{\small\GetDocumentVersion~-~\textit{\today}}%
 }{}

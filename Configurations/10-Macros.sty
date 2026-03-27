@@ -1,18 +1,17 @@
-%%% Document Macros and Extras %%%
+%%% Document Macros and Extras (Unibo Edition) %%%
 
+% --- Blank Page Management ---
 % Blank page with a warning indicating it is intentionally left blank.
 \newcommand\blankpage{
 	\clearpage
 	\thispagestyle{empty}%
 	\vspace*{\fill}
 	\begin{center}
-		\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-			\textcolor{gray!50}{\textit{Página intencionalmente deixada em branco.}}
-		}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-				\textcolor{gray!50}{\textit{Página intencionalmente dejada en blanco.}}
-			}{%
-				\textcolor{gray!50}{\textit{This page intentionally left blank.}}
-		}}
+		\ifthenelse{\equal{\LanguageOption}{italian}}{%
+			\textcolor{gray!50}{\textit{Pagina intenzionalmente lasciata bianca.}}
+		}{%
+			\textcolor{gray!50}{\textit{This page intentionally left blank.}}
+		}
 	\end{center}
 	\vspace*{\fill}
 	\clearpage
@@ -21,36 +20,45 @@
 % Command that will combine a plain page style and a blank one.
 \newcommand{\plainblankpage}{\thispagestyle{plain}\blankpage}
 
+% Logic to add or omit a blank page. 
+% Semplificata per funzionare sempre senza errori su GitHub Actions
+\newcommand{\MediaOptionLogic}{%
+	\clearpage
+}
+\newcommand{\MediaOptionLogicAcr}{%
+	\clearpage
+}
+\newcommand{\MediaOptionLogicBlank}{%
+	\blankpage
+}
+\newcommand{\MediaOptionLogicAnnexes}{%
+	\clearpage
+}
+
+
+% --- Guide and Info Blocks ---
 % Indicates that a writing guide will be displayed.
 \newcommand{\guideinfo}[1]{%
-	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-		\noindent\textcolor{note}{\faInfoCircle\ \textbf{Orientação Para a Escrita}}%
-	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-			\noindent\textcolor{note}{\faInfoCircle\ \textbf{Guía de Escritura}}%
-		}{
-			\noindent\textcolor{note}{\faInfoCircle\ \textbf{Writing Guidance}}%
-	}}
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		\noindent\textcolor{unibored}{\faInfoCircle\ \textbf{Guida alla Scrittura}}%
+	}{%
+		\noindent\textcolor{unibored}{\faInfoCircle\ \textbf{Writing Guidance}}%
+	}
 	\\[.55em]%
 	\noindent #1%
 }
 
 \newcommand{\exampleinfo}[1]{%
-	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-		\noindent\textcolor{black}{\faInfoCircle\ \textbf{Exemplo de Utilização}}%
-	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-			\noindent\textcolor{black}{\faInfoCircle\ \textbf{Ejemplo de Uso}}%
-		}{
-			\noindent\textcolor{black}{\faInfoCircle\ \textbf{Example of Use}}%
-	}}
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
+		\noindent\textcolor{black}{\faInfoCircle\ \textbf{Esempio di Utilizzo}}%
+	}{%
+		\noindent\textcolor{black}{\faInfoCircle\ \textbf{Example of Use}}%
+	}
 	\\[.55em]%
 	\noindent #1%
 }
 
-% Abstract keywords.
-\NewDocumentCommand{\keywordsen}{m}{\vspace{.4cm}\noindent\textbf{Keywords:} #1}
-\NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palavras-Chave:} #1}
-\NewDocumentCommand{\keywordses}{m}{\vspace{.4cm}\noindent\textbf{Palabras Clave:} #1}
-
+% --- Landscape Mode ---
 % Landscape mode - the proper way!
 \def\ifGm@preamble#1{\@firstofone}
 \appto\restoregeometry{%
@@ -62,12 +70,12 @@
 \newenvironment{landscapemode}[2]{%
 	\newgeometry{paperwidth=#1,paperheight=#2,hmargin=3cm,vmargin=5cm,top=3cm,landscape}
 	\fancyheadoffset{0pt}
-	%\titlespacing*{\chapter}{0pt}{0pt}{40pt}
 }{%
 	\restoregeometry
 	\fancyheadoffset{0pt}
 }
 
+% --- Custom Quote Blocks ---
 % Custom Markdown quote block implementation in LaTeX.
 \newtcolorbox[auto counter,number within=section]{block}[1][]{
 	enhanced jigsaw,
@@ -85,93 +93,43 @@
 	code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}},
 }
 
-% Capitalise the first letter in '\autoref' for both English and Portuguese.
+% --- Autoref Capitalization ---
+% Capitalise the first letter in '\autoref' for both English and Italian.
 \addto\extrasenglish{\def\figureautorefname{Figure}}
 \addto\extrasenglish{\def\chapterautorefname{Chapter}}
 \addto\extrasenglish{\def\sectionautorefname{Section}}
 \addto\extrasenglish{\def\subsectionautorefname{Section}}
-\addto\extrasenglish{\def\subsubsectionautorefname{Section}}
 \addto\extrasenglish{\def\tableautorefname{Table}}
-\addto\extrasenglish{\def\partautorefname{Part}}
 \addto\extrasenglish{\def\appendixautorefname{Appendix}}
-\addto\extrasportuguese{\def\sectionautorefname{Secção}}
-\addto\extrasportuguese{\def\subsectionautorefname{Secção}}
-\addto\extrasportuguese{\def\subsubsectionautorefname{Secção}}
-\addto\extrasspanish{\def\figureautorefname{Figura}}
-\addto\extrasspanish{\def\chapterautorefname{Capítulo}}
-\addto\extrasspanish{\def\sectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsubsectionautorefname{Sección}}
-\addto\extrasspanish{\def\tableautorefname{Tabla}}
-\addto\extrasspanish{\def\partautorefname{Parte}}
-\addto\extrasspanish{\def\appendixautorefname{Apéndice}}
 
-% Command to overwrite the color of a given command.
-\newcommand{\overwritecolor}[2]{%
-	\textcolor{#1}{%
-		\renewcommand\color[2][]{}%
-		#2}%
-}
+\addto\extrasitalian{\def\figureautorefname{Figura}}
+\addto\extrasitalian{\def\chapterautorefname{Capitolo}}
+\addto\extrasitalian{\def\sectionautorefname{Sezione}}
+\addto\extrasitalian{\def\subsectionautorefname{Sezione}}
+\addto\extrasitalian{\def\tableautorefname{Tabella}}
+\addto\extrasitalian{\def\appendixautorefname{Appendice}}
 
-% Wrapping bot glossary and acronyms commands.
-\newcommand{\printnormalglossary}{\printglossary}
-\newcommand{\printacronymglossary}{\printglossary[type=\acronymtype]}
-\newcommand{\printsymbolglossary}{\printglossary[type=symbols]}
-
-% Logic to add or omit a blank page depending on the '\MediaOption' value.
-\newcommand{\MediaOptionLogic}{%
-	\ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\thispagestyle{plain}}%
-}
-
-\newcommand{\MediaOptionLogicAcr}{%
-	\ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\clearpage\thispagestyle{plain}}%
-}
-
-\newcommand{\MediaOptionLogicBlank}{%
-	\ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{}%
-}
-
-\newcommand{\MediaOptionLogicAnnexes}{%
-	\ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{\clearpage}%
-}
-
-% Update various elements based on the '\MediaOption' value.
-\apptocmd{\tableofcontents}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\listoffigures}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\listoftables}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\printnormalglossary}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\printacronymglossary}{\MediaOptionLogicAcr}{}{\fail}
-\apptocmd{\printsymbolglossary}{\MediaOptionLogicAcr}{}{\fail}
-\pretocmd{\printbibliography}{\MediaOptionLogic}{}{\fail}
-
+% --- AI Prompts (Opzionale) ---
 \NewDocumentCommand{\prompt}{o m}{%
-	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
 		\IfNoValueTF{#1}
-		{\noindent\textbf{Instrução:} #2}
-		{\noindent\textbf{Instrução #1:} #2}
-	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-			\IfNoValueTF{#1}
-			{\noindent\textbf{Instrucción:} #2}
-			{\noindent\textbf{Instrucción #1:} #2}
-		}{
-			\IfNoValueTF{#1}
-			{\noindent\textbf{Prompt:} #2}
-			{\noindent\textbf{Prompt #1:} #2}
-	}}
+		{\noindent\textbf{Prompt:} #2}
+		{\noindent\textbf{Prompt #1:} #2}
+	}{%
+		\IfNoValueTF{#1}
+		{\noindent\textbf{Prompt:} #2}
+		{\noindent\textbf{Prompt #1:} #2}
+	}
 }
 
 \NewDocumentCommand{\aioutput}{o m}{%
-	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+	\ifthenelse{\equal{\LanguageOption}{italian}}{%
 		\IfNoValueTF{#1}
-		{\noindent\textbf{Resposta:} #2}
-		{\noindent\textbf{Resposta #1:} #2}
-	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-			\IfNoValueTF{#1}
-			{\noindent\textbf{Respuesta:} #2}
-			{\noindent\textbf{Respuesta #1:} #2}
-		}{
-			\IfNoValueTF{#1}
-			{\noindent\textbf{Output:} #2}
-			{\noindent\textbf{Output #1:} #2}
-	}}
+		{\noindent\textbf{Risposta:} #2}
+		{\noindent\textbf{Risposta #1:} #2}
+	}{%
+		\IfNoValueTF{#1}
+		{\noindent\textbf{Output:} #2}
+		{\noindent\textbf{Output #1:} #2}
+	}
 }

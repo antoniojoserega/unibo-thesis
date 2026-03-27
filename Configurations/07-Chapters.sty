@@ -1,29 +1,38 @@
-%%% Chapters and Sections %%%
+%%% Chapters and Sections (Stili per Capitoli e Sezioni) %%%
+
+% --- Stile 1: Classic ---
+% Stile accademico tradizionale con il numero del capitolo gigante in Rosso Unibo
 \ifthenelse{\equal{\ChapterOption}{classic}}{
-    \titleformat{\chapter}[display]%
-    {\raggedleft\huge}%
-    {\raggedleft\fontsize{98}{10}\bfseries{\color{chapterdarkred}{\thechapter}}}%
-    {0pt}%
-    {\hspace{3cm}\minionfont\fontsize{28}{30}\selectfont}%
+	\titleformat{\chapter}[display]%
+	{\raggedleft\huge}% Allinea a destra
+	{\raggedleft\fontsize{98}{10}\bfseries{\color{maincolor}{\thechapter}}}% Usa il colore primario (Unibo) per il numero gigante
+	{0pt}%
+	{\hspace{3cm}\minionfont\fontsize{28}{30}\selectfont}%
 }{}
 
+% --- Stile 2: Fancy ---
+% Stile elegante e minimale con una sottile linea verticale accanto al numero
 \ifthenelse{\equal{\ChapterOption}{fancy}}{
-    \titleformat{\chapter}[display]
-    {\flushright\normalsize\huge\color{black}}%
-    {\flushright\normalsize%
-    {\fontsize{25}{25}\selectfont\hspace*{-1em}\rule[-2pt]{.1pt}{30pt}\hspace{0.5em}\raisebox{4.5pt}{\thechapter}}}%
-    {10pt}%
-    {\addfontfeature{LetterSpace=6}\huge\scshape}%
+	\titleformat{\chapter}[display]
+	{\flushright\normalsize\huge\color{black}}%
+	{\flushright\normalsize%
+		{\fontsize{25}{25}\selectfont\hspace*{-1em}\rule[-2pt]{.1pt}{30pt}\hspace{0.5em}\raisebox{4.5pt}{\thechapter}}}%
+	{10pt}%
+	{\addfontfeature{LetterSpace=6}\huge\scshape}%
 }{}
 
+% --- Stile 3: Modern ---
+% Stile moderno con numero grigio gigante in sottofondo e titolo in MAIUSCOLO spaziato
 \ifthenelse{\equal{\ChapterOption}{modern}}{
-    \titleformat{\chapter}[display]
-    {\normalsize\huge\color{black}}%
-    {\minionfont\flushright\fontsize{84}{10}\bfseries%
-    {\color{chaptergray}\raisebox{5pt}{\thechapter}}%
-    }{10pt}%
-    {\minionfont\addfontfeature{LetterSpace=6}\fontsize{28}{32}\MakeUppercase}%
+	\titleformat{\chapter}[display]
+	{\normalsize\huge\color{black}}%
+	{\minionfont\flushright\fontsize{84}{10}\bfseries%
+		{\color{gray}\raisebox{5pt}{\thechapter}}% Usa il grigio standard per il numero di sfondo
+	}{10pt}%
+	{\minionfont\addfontfeature{LetterSpace=6}\fontsize{28}{32}\MakeUppercase}%
 }{}
 
+% --- Formattazione di Sezioni e Sottosezioni ---
+% Imposta i font e le dimensioni per i paragrafi interni ai capitoli
 \titleformat{\section}{\minionfont\fontsize{15pt}{17pt}\selectfont\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\minionfont\fontsize{13.5pt}{15.5pt}\selectfont\bfseries}{\thesubsection}{1em}{}

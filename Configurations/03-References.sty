@@ -1,67 +1,69 @@
-%%% Bibliography %%%
+%%% Bibliography & References %%%
+
 \usepackage[
-	backend=biber, % Use Biber for bibliography compilation.
-	citestyle=authoryear, % Style for in-text citations.
-	bibstyle=authoryear, % Style for the bibliography.
-	sorting=nyt, % Sort references by name, year, and title.
-    natbib=true, % Enable natbib compatibility.
-    dashed=false, % Always display author names in the bibliography.
-    uniquelist=false, % Display only the first author (e.g., Author et al., Year).
-    urldate=iso, % Use ISO format for accessed dates in online sources.
-    seconds=true % Include seconds in date-time fields.
+backend=biber, % Usa Biber per la compilazione della bibliografia (standard moderno)
+citestyle=authoryear, % Stile per le citazioni nel testo (Es. Rossi 2024). Per lo stile numerico (es. [1]), cambia in 'numeric' o 'ieee'.
+bibstyle=authoryear, % Stile per la bibliografia finale. Cambia in 'numeric' o 'ieee' se richiesto.
+sorting=nyt, % Ordina per Nome, Anno, Titolo
+natbib=true, % Abilita la compatibilità con i vecchi comandi natbib
+dashed=false, % Mostra sempre i nomi degli autori (non usare trattini per autori ripetuti)
+uniquelist=false, % Mostra solo il primo autore se ci sono omonimie (es. Autore et al., Anno)
+urldate=iso, % Formato ISO per le date di accesso ai siti web
+seconds=true % Includi i secondi nei campi data-ora
 ]{biblatex}
 
-\setlength\bibitemsep{1.5\itemsep} % Increase spacing between bibliography items.
-\setlength\bibhang{0pt} % Remove hanging indent for bibliography entries.
-\addbibresource{Bibliography/Bibliography.bib} % Load the bibliography file.
+\setlength\bibitemsep{1.5\itemsep} % Aumenta lo spazio tra gli elementi in bibliografia
+\setlength\bibhang{0pt} % Rimuove il rientro sporgente per le voci bibliografiche
+\addbibresource{Bibliography/Bibliography.bib} % Carica il file del database bibliografico
 
-% Configure citation style to include both author and year prominently.
+% --- Magia LaTeX per rendere cliccabile sia l'autore che l'anno ---
+% Configura lo stile di citazione per includere sia l'autore che l'anno in modo prominente
 \ExecuteBibliographyOptions{maxcitenames=1}
 \DeclareFieldFormat{citehyperref}{%
-    \DeclareFieldAlias{bibhyperref}{noformat}%
-    \bibhyperref{#1}%
+	\DeclareFieldAlias{bibhyperref}{noformat}%
+	\bibhyperref{#1}%
 }
 
 \DeclareFieldFormat{textcitehyperref}{%
-    \DeclareFieldAlias{bibhyperref}{noformat}%
-    \bibhyperref{%
-        #1%
-        \ifbool{cbx:parens}
-        {\bibcloseparen\global\boolfalse{cbx:parens}}
-    {}}%
+	\DeclareFieldAlias{bibhyperref}{noformat}%
+	\bibhyperref{%
+		#1%
+		\ifbool{cbx:parens}
+		{\bibcloseparen\global\boolfalse{cbx:parens}}
+		{}}%
 }
-    
+
 \savebibmacro{cite}
 \savebibmacro{textcite}
 \renewbibmacro*{cite}{%
-    \printtext[citehyperref]{%
-        \restorebibmacro{cite}%
-        \usebibmacro{cite}%
-    }}
-    
+	\printtext[citehyperref]{%
+		\restorebibmacro{cite}%
+		\usebibmacro{cite}%
+}}
+
 \renewbibmacro*{textcite}{%
-    \ifboolexpr{
-        ( not test {\iffieldundef{prenote}} and
-          test {\ifnumequal{\value{citecount}}{1}} )
-        or
-        ( not test {\iffieldundef{postnote}} and
-          test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
-    }
-    {\DeclareFieldAlias{textcitehyperref}{noformat}}
-    {}%
-    \printtext[textcitehyperref]{%
-    \restorebibmacro{textcite}%
-    \usebibmacro{textcite}}%
+	\ifboolexpr{
+		( not test {\iffieldundef{prenote}} and
+		test {\ifnumequal{\value{citecount}}{1}} )
+		or
+		( not test {\iffieldundef{postnote}} and
+		test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+	}
+	{\DeclareFieldAlias{textcitehyperref}{noformat}}
+	{}%
+	\printtext[textcitehyperref]{%
+		\restorebibmacro{textcite}%
+		\usebibmacro{textcite}}%
 }
 
-% Hyperlink settings.
+% --- Impostazioni dei Link Ipertestuali (Hyperref) ---
 \hypersetup{
-    bookmarksnumbered, % Enables the chapter and section numbers within the PDF bookmarks.
-	colorlinks=true, % Enable colored text for links.
-	urlcolor=maincolor, % Color for \url and \href links.
-	linkcolor=maincolor, % Color for internal links (e.g., \nameref).
-	citecolor=maincolor, % Color for citation links.
+	bookmarksnumbered, % Mostra i numeri di capitolo/sezione nei segnalibri del PDF
+	colorlinks=true, % Abilita i link colorati (invece dei riquadri brutti di default)
+	urlcolor=maincolor, % Colore per i link \url e \href (usa il colore Unibo)
+	linkcolor=maincolor, % Colore per i link interni (es. indice, \autoref)
+	citecolor=maincolor, % Colore per i link alle citazioni bibliografiche
 }
 
-% Add a "." after the number in the PDF bookmark.
+% Aggiunge un "." dopo il numero nel segnalibro PDF (es. "1. Introduzione" invece di "1 Introduzione")
 \def\Hy@numberline#1{\ifHy@bookmarksnumbered{#1.\hspace{0.3em}}\else#1\fi}
