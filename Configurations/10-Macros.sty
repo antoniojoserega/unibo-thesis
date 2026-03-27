@@ -2,20 +2,20 @@
 
 % Blank page with a warning indicating it is intentionally left blank.
 \newcommand\blankpage{
-    \clearpage
-    \thispagestyle{empty}%
-    \vspace*{\fill}
-    \begin{center}
-        \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-            \textcolor{gray!50}{\textit{Página intencionalmente deixada em branco.}}
-        }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-            \textcolor{gray!50}{\textit{Página intencionalmente dejada en blanco.}}
-        }{%
-            \textcolor{gray!50}{\textit{This page intentionally left blank.}}
-        }}
-    \end{center}
-    \vspace*{\fill}
-    \clearpage
+	\clearpage
+	\thispagestyle{empty}%
+	\vspace*{\fill}
+	\begin{center}
+		\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+			\textcolor{gray!50}{\textit{Página intencionalmente deixada em branco.}}
+		}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+				\textcolor{gray!50}{\textit{Página intencionalmente dejada en blanco.}}
+			}{%
+				\textcolor{gray!50}{\textit{This page intentionally left blank.}}
+		}}
+	\end{center}
+	\vspace*{\fill}
+	\clearpage
 } 
 
 % Command that will combine a plain page style and a blank one.
@@ -23,27 +23,27 @@
 
 % Indicates that a writing guide will be displayed.
 \newcommand{\guideinfo}[1]{%
-    \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-        \noindent\textcolor{note}{\faInfoCircle\ \textbf{Orientação Para a Escrita}}%
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \noindent\textcolor{note}{\faInfoCircle\ \textbf{Guía de Escritura}}%
-    }{
-        \noindent\textcolor{note}{\faInfoCircle\ \textbf{Writing Guidance}}%
-    }}
-    \\[.55em]%
-    \noindent #1%
+	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+		\noindent\textcolor{note}{\faInfoCircle\ \textbf{Orientação Para a Escrita}}%
+	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+			\noindent\textcolor{note}{\faInfoCircle\ \textbf{Guía de Escritura}}%
+		}{
+			\noindent\textcolor{note}{\faInfoCircle\ \textbf{Writing Guidance}}%
+	}}
+	\\[.55em]%
+	\noindent #1%
 }
 
 \newcommand{\exampleinfo}[1]{%
-    \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-        \noindent\textcolor{black}{\faInfoCircle\ \textbf{Exemplo de Utilização}}%
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \noindent\textcolor{black}{\faInfoCircle\ \textbf{Ejemplo de Uso}}%
-    }{
-        \noindent\textcolor{black}{\faInfoCircle\ \textbf{Example of Use}}%
-    }}
-    \\[.55em]%
-    \noindent #1%
+	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+		\noindent\textcolor{black}{\faInfoCircle\ \textbf{Exemplo de Utilização}}%
+	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+			\noindent\textcolor{black}{\faInfoCircle\ \textbf{Ejemplo de Uso}}%
+		}{
+			\noindent\textcolor{black}{\faInfoCircle\ \textbf{Example of Use}}%
+	}}
+	\\[.55em]%
+	\noindent #1%
 }
 
 % Abstract keywords.
@@ -54,35 +54,35 @@
 % Landscape mode - the proper way!
 \def\ifGm@preamble#1{\@firstofone}
 \appto\restoregeometry{%
-    \pdfpagewidth=\paperwidth
-    \pdfpageheight=\paperheight}
+	\pdfpagewidth=\paperwidth
+	\pdfpageheight=\paperheight}
 \apptocmd\newgeometry{%
-    \pdfpagewidth=\paperwidth
-    \pdfpageheight=\paperheight}{}{}
+	\pdfpagewidth=\paperwidth
+	\pdfpageheight=\paperheight}{}{}
 \newenvironment{landscapemode}[2]{%
-    \newgeometry{paperwidth=#1,paperheight=#2,hmargin=3cm,vmargin=5cm,top=3cm,landscape}
-    \fancyheadoffset{0pt}
-    %\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+	\newgeometry{paperwidth=#1,paperheight=#2,hmargin=3cm,vmargin=5cm,top=3cm,landscape}
+	\fancyheadoffset{0pt}
+	%\titlespacing*{\chapter}{0pt}{0pt}{40pt}
 }{%
-    \restoregeometry
-    \fancyheadoffset{0pt}
+	\restoregeometry
+	\fancyheadoffset{0pt}
 }
 
 % Custom Markdown quote block implementation in LaTeX.
 \newtcolorbox[auto counter,number within=section]{block}[1][]{
-    enhanced jigsaw,
-    coltitle=#1,
-    colback=#1!08!white,
-    colframe=#1!08!white,
-    fonttitle=\latofont\bfseries,
-    sharp corners=west,
-    detach title,
-    borderline west={.85mm}{0pt}{#1},
-    pad at break=1mm,
-    top=4mm,
-    bottom=4mm,
-    title={\ifstrequal{#1}{todo}{To-Do}{\capitalisewords{#1}}},
-    code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}},
+	enhanced jigsaw,
+	coltitle=#1,
+	colback=#1!08!white,
+	colframe=#1!08!white,
+	fonttitle=\latofont\bfseries,
+	sharp corners=west,
+	detach title,
+	borderline west={.85mm}{0pt}{#1},
+	pad at break=1mm,
+	top=4mm,
+	bottom=4mm,
+	title={\ifstrequal{#1}{todo}{To-Do}{\capitalisewords{#1}}},
+	code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}},
 }
 
 % Capitalise the first letter in '\autoref' for both English and Portuguese.
@@ -108,9 +108,9 @@
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%
-    \textcolor{#1}{%
-        \renewcommand\color[2][]{}%
-    #2}%
+	\textcolor{#1}{%
+		\renewcommand\color[2][]{}%
+		#2}%
 }
 
 % Wrapping bot glossary and acronyms commands.
@@ -120,19 +120,19 @@
 
 % Logic to add or omit a blank page depending on the '\MediaOption' value.
 \newcommand{\MediaOptionLogic}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\thispagestyle{plain}}%
+	\ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\thispagestyle{plain}}%
 }
 
 \newcommand{\MediaOptionLogicAcr}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\clearpage\thispagestyle{plain}}%
+	\ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\clearpage\thispagestyle{plain}}%
 }
 
 \newcommand{\MediaOptionLogicBlank}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{}%
+	\ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{}%
 }
 
 \newcommand{\MediaOptionLogicAnnexes}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{\clearpage}%
+	\ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{\clearpage}%
 }
 
 % Update various elements based on the '\MediaOption' value.
@@ -145,52 +145,33 @@
 \pretocmd{\printbibliography}{\MediaOptionLogic}{}{\fail}
 
 \NewDocumentCommand{\prompt}{o m}{%
-    \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Instrução:} #2}
-        {\noindent\textbf{Instrução #1:} #2}
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Instrucción:} #2}
-        {\noindent\textbf{Instrucción #1:} #2}
-    }{
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Prompt:} #2}
-        {\noindent\textbf{Prompt #1:} #2}
-    }}
+	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+		\IfNoValueTF{#1}
+		{\noindent\textbf{Instrução:} #2}
+		{\noindent\textbf{Instrução #1:} #2}
+	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+			\IfNoValueTF{#1}
+			{\noindent\textbf{Instrucción:} #2}
+			{\noindent\textbf{Instrucción #1:} #2}
+		}{
+			\IfNoValueTF{#1}
+			{\noindent\textbf{Prompt:} #2}
+			{\noindent\textbf{Prompt #1:} #2}
+	}}
 }
 
 \NewDocumentCommand{\aioutput}{o m}{%
-    \ifthenelse{\equal{\LanguageOption}{portuguese}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Resposta:} #2}
-        {\noindent\textbf{Resposta #1:} #2}
-    }{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Respuesta:} #2}
-        {\noindent\textbf{Respuesta #1:} #2}
-    }{
-        \IfNoValueTF{#1}
-        {\noindent\textbf{Output:} #2}
-        {\noindent\textbf{Output #1:} #2}
-    }}
+	\ifthenelse{\equal{\LanguageOption}{portuguese}}{%
+		\IfNoValueTF{#1}
+		{\noindent\textbf{Resposta:} #2}
+		{\noindent\textbf{Resposta #1:} #2}
+	}{\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+			\IfNoValueTF{#1}
+			{\noindent\textbf{Respuesta:} #2}
+			{\noindent\textbf{Respuesta #1:} #2}
+		}{
+			\IfNoValueTF{#1}
+			{\noindent\textbf{Output:} #2}
+			{\noindent\textbf{Output #1:} #2}
+	}}
 }
-
-% add on
-% --- Gestione Pagine Bianche e Logica Media ---
-% Definisce il comando per generare una pagina completamente vuota
-\newcommand{\MediaOptionLogicBlank}{%
-	\clearpage
-	\thispagestyle{empty}
-	\mbox{}
-	\clearpage
-}
-
-% Definisce il comando per la logica degli allegati (se presente nel template)
-\newcommand{\MediaOptionLogicAnnexes}{%
-	\clearpage
-}
-
-% Definisce la logica per la gestione dei media (stampa vs digitale)
-% Se non definita altrove, questa versione base evita errori di compilazione
-\providecommand{\MediaOptionLogic}{}
