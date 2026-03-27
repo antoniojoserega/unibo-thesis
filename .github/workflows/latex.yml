@@ -31,7 +31,7 @@ jobs:
           compiler: latexmk
           latexmk_use_lualatex: true
           latexmk_shell_escape: true
-          extra_system_packages: "font-liberation font-dejavu fontconfig font-ebgaramond font-lato"
+          extra_system_packages: "font-liberation font-dejavu fontconfig font-lato"
           pre_compile: |
             mkdir -p /usr/local/share/fonts/unibo-fonts
             if [ -d "./Configurations/Fonts" ]; then
