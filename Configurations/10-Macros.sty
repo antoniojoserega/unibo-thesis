@@ -175,3 +175,22 @@
         {\noindent\textbf{Output #1:} #2}
     }}
 }
+
+% add on
+% --- Gestione Pagine Bianche e Logica Media ---
+% Definisce il comando per generare una pagina completamente vuota
+\newcommand{\MediaOptionLogicBlank}{%
+	\clearpage
+	\thispagestyle{empty}
+	\mbox{}
+	\clearpage
+}
+
+% Definisce il comando per la logica degli allegati (se presente nel template)
+\newcommand{\MediaOptionLogicAnnexes}{%
+	\clearpage
+}
+
+% Definisce la logica per la gestione dei media (stampa vs digitale)
+% Se non definita altrove, questa versione base evita errori di compilazione
+\providecommand{\MediaOptionLogic}{}
