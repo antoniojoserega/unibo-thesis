@@ -1,14 +1,32 @@
-% Author Name: Antonio José Gregorio Rega 
-% Author Contact: antonio.jose.rega@gmail.com
-% Version: 2.2.13 - 2026/01/06
-% Public Repository: https://github.com/antoniojoserega/unibo-thesis-latex-template
-% Wiki/Getting Help: https://github.com/antoniojoserega/unibo-thesis-latex-template/wiki
-% Based on: IPLeiria Thesis Template by José Areia
-% Adapted for Alma Mater Studiorum - Università di Bologna
+% ============================================================
+% UniboThesis.cls — LaTeX Thesis Template
+% Alma Mater Studiorum — Università di Bologna
+% ============================================================
+%
+% Author:  Antonio José Gregorio Rega
+% Contact: antonio.jose.rega@gmail.com
+% Version: 1.0.0 — 2026/04/01
+% Repo:    https://github.com/antoniojoserega/unibo-thesis
+% Wiki:    https://github.com/antoniojoserega/unibo-thesis/wiki
+%
+% ------------------------------------------------------------
+% DERIVED WORK — Attribution Notice (LPPL 1.3c compliant)
+% ------------------------------------------------------------
+% This file is a modified version of IPLeiriaThesis.cls,originally created by José Areia for the Polytechnic University of Leiria (IPLeiria), Portugal.
+%
+% Original work:    https://github.com/joseareia/ipleiria-thesis
+% Original author:  José Areia <jose.apareia@gmail.com>
+% Original license: LaTeX Project Public License (LPPL) v1.3c
+%
+% Modifications made for Alma Mater Studiorum - Università di Bologna: renamed class, replaced institutional branding (colors, logos, cover layout), adapted school/faculty options to Unibo departments, set Italian as default language, updated metadata and configuration files.
+%
+% This derived work is redistributed under the MIT License.
+% The original LPPL 1.3c license terms are honored: a copy of the original work is available at the URL above.
+% ============================================================
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{UniboThesis}[2026/03/26 v1.0 Unibo Thesis Class]
+\ProvidesClass{UniboThesis}[2026/04/01 v1.0.0 Unibo Thesis Class]
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
 
