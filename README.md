@@ -38,7 +38,7 @@ Questa repository contiene tutto il <b>codice sorgente del template</b>, organiz
 
 ---
 
-## Hai bisogno di aiuto con la tesi? (Servizi Professionali)
+## Hai bisogno di aiuto con la tesi?
 Sei vicino alla consegna, non hai tempo di imparare la sintassi di LaTeX, o stai impazzendo con l'impaginazione di Word? **Posso aiutarti io.**
 
 Sono uno studente di Ingegneria e mi occupo di formattazione accademica avanzata. Offro i seguenti servizi:
@@ -65,7 +65,7 @@ Il modo più semplice è aprire il template direttamente su **Overleaf**, senza 
 
 Se preferisci lavorare in locale, scarica la repository come `.zip` (`Code` > `Download ZIP`) e compilala con TeX Live o MiKTeX, usando un editor come TeXstudio o VS Code con l'estensione LaTeX Workshop.
 
-## 🛠️ Know-how
+## Know-how
 Il file principale da compilare è `UniboMain.tex`. All'interno troverai commenti chiari che ti guidano nell'inserire nome, titolo della tesi, relatore e facoltà/dipartimento nel file `Metadata/`.
 
 ## Contribuisci
