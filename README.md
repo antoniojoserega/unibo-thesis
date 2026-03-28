@@ -27,9 +27,9 @@ Curioso di vedere il risultato? Dai un'occhiata all'anteprima del <a href="https
 </p>
 
 <p align="center">
-  <img src="Assets/01_Preview.png" width="273"/>
-  <img src="Assets/02_Preview.png" width="273"/>
-  <img src="Assets/03_Preview.png" width="273"/>
+  <img src="Assets/01_B.png" width="273"/>
+  <img src="Assets/02_B.png" width="273"/>
+  <img src="Assets/03_B.png" width="273"/>
 </p>
 
 <p float="left">
