@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/antoniojoserega/unibo-thesis/issues/new?labels=bug" target="_blank">Segnala un nug</a>
+    <a href="https://github.com/antoniojoserega/unibo-thesis/issues/new?labels=bug" target="_blank">Segnala un bug</a>
 ·
     <a href="https://github.com/antoniojoserega/unibo-thesis/issues/new?labels=enhancement" target="_blank">Richiedi una feature</a>
 ·
@@ -57,7 +57,7 @@ Sono uno studente di Ingegneria e mi occupo di formattazione accademica avanzata
 Il modo più semplice è aprire il template direttamente su **Overleaf**, senza installare nulla:
 
 <p align="center">
-    <a href="https://www.overleaf.com/latex/templates/INSERISCI-QUI-IL-TUO-LINK" target="_blank">
+    <a href="https://www.overleaf.com/github/antoniojoserega/unibo-thesis" target="_blank">
         <img src="https://img.shields.io/badge/Apri%20su-Overleaf-brightgreen.svg?style=flat-square&logo=overleaf" alt="Open in Overleaf">
     </a>
 </p>
