@@ -33,6 +33,9 @@
 \NewDocumentCommand{\ThesisType}{m}{\newcommand{\GetThesisType}{#1}} % Es: Tesi di Laurea
 \NewDocumentCommand{\AcademicYear}{m}{\newcommand{\GetAcademicYear}{#1}} % Anno Accademico
 
+% Sessione di Laurea
+\NewDocumentCommand{\GraduationSession}{m}{\newcommand{\GetGraduationSession}{#1}}
+
 % Redefine the commands to Pascal case.
 \let\Title\title
 \newcommand{\GetTitle}{\@title}

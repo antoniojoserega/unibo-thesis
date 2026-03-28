@@ -1,7 +1,18 @@
-%%% Frontespizio Unibo %%%
+%%% Frontespizio - Dynamic University Support %%%
+
+%%% Configurazione dinamica per università %%%
+\ifthenelse{\equal{\UniversityOption}{unibo}}{
+	\newcommand{\GetUniversityName}{Alma Mater Studiorum — Università di Bologna}
+	\newcommand{\GetUniversityLogoBW}{logo_copertina.png}
+	\newcommand{\GetUniversityLogoColor}{logo_frontespizio.png}
+}{
+	% Fallback
+	\newcommand{\GetUniversityName}{Università degli Studi}
+	\newcommand{\GetUniversityLogoBW}{logo_copertina.png}
+	\newcommand{\GetUniversityLogoColor}{logo_frontespizio.png}
+}
 
 % --- DEFINIZIONE MACRO PER LA PAGINA ---
-% Creiamo un comando riutilizzabile per l'impaginazione
 \newcommand{\UniboTitlePage}[1]{
 	\begin{titlepage}
 		% Margini simmetrici per la copertina
@@ -9,9 +20,13 @@
 		
 		\begin{center}
 			
-			% Logo Unibo (L'argomento #1 deciderà quale immagine caricare)
+			% Logo università
 			\includegraphics[width=6cm]{Figures/Theme/#1} \par
-			\vspace{1cm}
+			\vspace{0.5cm}
+			
+			% Nome Ateneo
+			{\large \textbf{\GetUniversityName} \par}
+			\vspace{0.5cm}
 			
 			% Intestazione Ateneo
 			{\large \textbf{\GetDepartment} \par}
@@ -62,8 +77,7 @@
 			% Sessione e Anno Accademico
 			\rule{0.6\textwidth}{0.4pt} \\
 			\vspace{0.2cm}
-			% Usiamo la variabile Date per la "Sessione mese anno" (es. Sessione Marzo 2026)
-			{\large \GetDate \par}
+			{\large \GetGraduationSession\ sessione \par}
 			{\large Anno Accademico \GetAcademicYear \par}
 			
 		\end{center}
@@ -73,15 +87,11 @@
 }
 
 % --- GENERAZIONE DELLE PAGINE ---
-
-% 1. Genera la Copertina (con logo in bianco e nero)
-\UniboTitlePage{logo_copertina.png}
-
+% 1. Copertina (logo in bianco e nero)
+\UniboTitlePage{\GetUniversityLogoBW}
 % Pagina bianca retro-copertina
 \MediaOptionLogicBlank
-
-% 2. Genera il Frontespizio (con logo rosso)
-\UniboTitlePage{logo_frontespizio.png}
-
+% 2. Frontespizio (logo a colori)
+\UniboTitlePage{\GetUniversityLogoColor}
 % Pagina bianca retro-frontespizio
 \MediaOptionLogicBlank

@@ -1,6 +1,7 @@
 ---
 <p align="center">
-    <img width="80%" src="Assets/04_Logo.png" alt="Unibo Logo">
+    <h1 align="center">Unibo Thesis</h1>
+    <p align="center"><i>Template LaTeX per tesi di laurea — Alma Mater Studiorum, Università di Bologna</i></p>
 </p>
 
 <p align="center">
@@ -26,9 +27,9 @@ Curioso di vedere il risultato? Dai un'occhiata all'anteprima del <a href="https
 </p>
 
 <p align="center">
-  <img src="Assets/01_B.png" width="273"/>
-  <img src="Assets/02_B.png" width="273"/>
-  <img src="Assets/03_B.png" width="273"/>
+  <img src="Assets/01_Preview.png" width="273"/>
+  <img src="Assets/02_Preview.png" width="273"/>
+  <img src="Assets/03_Preview.png" width="273"/>
 </p>
 
 <p float="left">
@@ -64,11 +65,11 @@ Il modo più semplice è aprire il template direttamente su **Overleaf**, senza 
 
 Se preferisci lavorare in locale, scarica la repository come `.zip` (`Code` > `Download ZIP`) e compilala con TeX Live o MiKTeX, usando un editor come TeXstudio o VS Code con l'estensione LaTeX Workshop.
 
-## Know-how
+## 🛠️ Know-how
 Il file principale da compilare è `UniboMain.tex`. All'interno troverai commenti chiari che ti guidano nell'inserire nome, titolo della tesi, relatore e facoltà/dipartimento nel file `Metadata/`.
 
 ## Contribuisci
-Ogni contributo è benvenuto! Se trovi un problema, hai suggerimenti o vuoi aggiungere compatibilità nativa per una specifica facoltà di Unibo, apri una [Pull Request](https://github.com/antoniojoserega/unibo-thesis/pulls) o segnala un [Issue](https://github.com/antoniojoserega/unibo-thesis/issues).
+Ogni contributo è benvenuto! Se trovi un problema, hai suggerimenti o vuoi aggiungere compatibilità nativa per altri atenei italiani, apri una [Pull Request](https://github.com/antoniojoserega/unibo-thesis/pulls) o segnala un [Issue](https://github.com/antoniojoserega/unibo-thesis/issues).
 
 ## Licenza
 Il progetto **Unibo Thesis** è rilasciato sotto licenza [MIT License](https://opensource.org/licenses/MIT). Sei libero di usarlo e modificarlo per la tua tesi. Non è affiliato ufficialmente all'Alma Mater Studiorum - Università di Bologna.

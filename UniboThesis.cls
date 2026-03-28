@@ -40,14 +40,14 @@
 
 \keys_define:nn { UniboThesis } {
 	% Modificato per le principali aree Unibo. Puoi aggiungerne altre in futuro.
-	school .choices:nn =
-	{ ingegneria, economia, lettere, scienze, medicina, giurisprudenza }
-	{ \tl_gset:Nn \g_UniboThesis_myschool_tl { #1 } },
-	school / unknown .code:n = 
+	university .choices:nn =
+	{ unibo }
+	{ \tl_gset:Nn \g_UniboThesis_myuniversity_tl { #1 } },
+	university / unknown .code:n = 
 	{ \ClassWarningNoLine{UniboThesis}
-		{Specified~'school'~not~available.~Defaulting~to~'ingegneria'} },
-	school .default:n = { ingegneria },
-	school .initial:n = { ingegneria },
+		{Specified~'university'~not~available.~Defaulting~to~'unibo'} },
+	university .default:n = { unibo },
+	university .initial:n = { unibo },
 	
 	coverstyle .choices:nn =
 	{ classic, bw }
@@ -138,7 +138,7 @@
 }
 
 \newcommand{\LanguageOption}{\g_UniboThesis_mylanguage_tl}
-\newcommand{\SchoolOption}{\g_UniboThesis_myschool_tl}
+\newcommand{\UniversityOption}{\g_UniboThesis_myuniversity_tl}
 \newcommand{\CoverOption}{\g_UniboThesis_mycover_tl}
 \newcommand{\ChapterOption}{\g_UniboThesis_style_tl}
 \newcommand{\DocStageOption}{\g_UniboThesis_docstage_tl}

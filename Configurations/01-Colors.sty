@@ -1,22 +1,21 @@
-%%% Document colors - Unibo Brand Identity %%%
+%%% Document colors - Dynamic per University %%%
 
-% Colore ufficiale Università di Bologna (Pantone 186 C)
-\definecolor{unibored}{RGB}{177, 0, 36}
+% --- Unibo (Alma Mater Studiorum - Bologna) ---
+\ifthenelse{\equal{\UniversityOption}{unibo}}{
+	\definecolor{unibored}{RGB}{177, 0, 36}      % Pantone 186 C - mantenuto per compatibilità
+	\definecolor{maincolor}{RGB}{177, 0, 36}
+	\definecolor{frontpagedark}{HTML}{1c1c1c}
+}{
+	% Fallback neutro
+	\definecolor{unibored}{RGB}{0, 0, 0}
+	\definecolor{maincolor}{RGB}{0, 0, 0}
+	\definecolor{frontpagedark}{HTML}{1c1c1c}
+}
 
-% Impostiamo forzatamente il colore principale (maincolor) al Rosso Unibo.
-% Questo colorerà automaticamente i numeri dei capitoli, i link e i riferimenti bibliografici!
-\colorlet{maincolor}{unibored}
-
-% Color used in the numeration of the chapter style 'classic'.
-\colorlet{chapterdarkred}{unibored}
-
-% Color used in the numeration of the chapter style 'modern'.
+\colorlet{chapterdarkred}{maincolor}
 \colorlet{chaptergray}{gray!80!white}
 
-% Color used in the typesetting of the front page.
-\definecolor{frontpagedark}{HTML}{1c1c1c}
-
-% Colors used in the custom block environment (Box avvisi).
+% Colors used in the custom block environment
 \definecolor{note}{HTML}{0969da}
 \definecolor{tip}{HTML}{1a7f37}
 \definecolor{warning}{HTML}{9a6700}

@@ -1,42 +1,41 @@
 \ifthenelse{\equal{\LanguageOption}{italian}}{%
-	\chapter[Tutorial Essenziale LaTeX: Fondamenti e Concetti Chiave]{Tutorial Essenziale LaTeX\\Fondamenti e Concetti Chiave}
+	\chapter[Tutorial essenziale LaTeX: fondamenti e concetti chiave]{Tutorial essenziale LaTeX\\Fondamenti e concetti chiave}
 }{%
-	\chapter[Essential LaTeX Tutorial: Fundamentals and Key Concepts]{Essential LaTeX Tutorial\\Fundamentals and Key Concepts}
+	\chapter[Essential LaTeX tutorial: fundamentals and key concepts]{Essential LaTeX tutorial\\Fundamentals and key concepts}
 }
 \label{cp:latex-tutorial}
 
 \ifthenelse{\equal{\LanguageOption}{italian}}{%
 	Questo capitolo introduce l'ambiente di lavoro di \LaTeX\ e gli elementi essenziali per produrre la tua tesi. \LaTeX\ è uno strumento per creare documenti professionali usando testo semplice con comandi di formattazione, a differenza degli editor visivi come Microsoft Word. Questi file vengono elaborati da un motore TeX per generare un PDF impaginato alla perfezione, permettendoti di concentrarti sui contenuti. Per una rapida introduzione, consulta la guida \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn LaTeX in 30 minutes} di Overleaf.
 	
-	\section{Citazioni e Riferimenti}
+	\section{Citazioni e riferimenti}
 	\label{sec:citations-it}
 	Presentiamo due approcci distinti per citare le voci della bibliografia. Il primo metodo prevede citazioni nel testo usando \texttt{\textbackslash citet\{CHIAVE\}} (es. Rossi 2024), mentre il secondo metodo impiega \texttt{\textbackslash citep\{CHIAVE\}} per citazioni tra parentesi (es. [Rossi 2024]). Puoi citare più lavori nello stesso ambiente usando \texttt{\textbackslash citep\{CHIAVE1, CHIAVE2\}}.
 	
-	Come per le citazioni bibliografiche, è consigliabile usare i riferimenti incrociati nel documento per richiamare capitoli, sezioni, figure o tabelle. Per fare ciò, crea prima un'etichetta con \texttt{\textbackslash label\{NOME\}} all'interno dell'elemento che vuoi richiamare. Successivamente, usa \texttt{\textbackslash autoref\{NOME\}} nel testo. Questo comando crea automaticamente un link cliccabile (del colore ufficiale Unibo) con la parola corretta, ad esempio: \autoref{cp:latex-tutorial}.
+	Come per le citazioni bibliografiche, è consigliabile usare i riferimenti incrociati nel documento per richiamare capitoli, sezioni, figure o tabelle. Per fare ciò, crea prima un'etichetta con \texttt{\textbackslash label\{NOME\}} all'interno dell'elemento che vuoi richiamare. Successivamente, usa \texttt{\textbackslash autoref\{NOME\}} nel testo. Questo comando crea automaticamente un link cliccabile con la parola corretta, ad esempio: \autoref{cp:latex-tutorial}.
 	
 	\begin{block}[tip]
 		Citazioni e riferimenti incrociati corretti sono vitali nella scrittura accademica. Assicurano credibilità, trasparenza e facilitano la navigazione del documento da parte della commissione di laurea.
 	\end{block}
 	
-	\section{Glossario e Acronimi}
+	\section{Glossario e acronimi}
 	Il documento include un glossario e un elenco di acronimi, visibili all'inizio del PDF. Puoi creare nuove voci nei file \texttt{Matter/04-Glossary.tex} e \texttt{Matter/05-Acronyms.tex}. Una volta creata la voce, richiamala nel testo usando \texttt{\textbackslash gls\{CHIAVE\}}. Per gli acronimi, usa \texttt{\textbackslash acrfull\{CHIAVE\}} la prima volta che appaiono (stamperà la definizione completa) e \texttt{\textbackslash acrshort\{CHIAVE\}} le volte successive.
 	
 	\section{Figure}
-	In \LaTeX, integrare le figure è un processo standardizzato. Si utilizza l'ambiente \texttt{\textbackslash begin\{figure\}}. Puoi personalizzare il parametro \texttt{width} in base alle tue esigenze ed è fondamentale fornire una didascalia ben scritta.
-	L'ambiente della didascalia è denotato da \texttt{\textbackslash caption\{TESTO\}}. Per generare una didascalia più corta per l'Indice delle Figure, utilizza il formato \texttt{\textbackslash caption[TESTO\_BREVE]\{TESTO\_LUNGO\}}.
+	In \LaTeX, integrare le figure è un processo standardizzato. Si utilizza l'ambiente \texttt{\textbackslash begin\{figure\}}. Puoi personalizzare il parametro \texttt{width} in base alle tue esigenze ed è fondamentale fornire una didascalia ben scritta. L'ambiente della didascalia è denotato da \texttt{\textbackslash caption\{TESTO\}}. Per generare una didascalia più corta per l'indice delle figure, utilizza il formato \texttt{\textbackslash caption[TESTO\_BREVE]\{TESTO\_LUNGO\}}.
 	
 	\begin{figure}[!htpb]
 		\centering
 		\includegraphics[width=0.6\linewidth]{Figures/Theme/logo_frontespizio.png}
-		\caption[Logo ufficiale dell'Ateneo per il frontespizio.]{Esempio di inserimento di una figura, in questo caso il logo ufficiale dell'Alma Mater Studiorum - Università di Bologna utilizzato per la generazione automatica del frontespizio.}
+		\caption[Logo ufficiale dell'ateneo per il frontespizio.]{Esempio di inserimento di una figura, in questo caso il logo ufficiale dell'ateneo utilizzato per la generazione automatica del frontespizio.}
 		\label{fig:esempio-logo-it}
 	\end{figure}
 	
 	\section{Tabelle}
-	Le tabelle sono vitali per presentare i risultati. Questo template semplifica molto la loro creazione fornendo stili pre-impostati.
+	Le tabelle sono fondamentali per presentare i risultati in modo chiaro. Questo template semplifica la loro creazione fornendo stili pre-impostati.
 	
 	\begin{block}[tip]
-		Tutti gli ambienti per le tabelle dovrebbero utilizzare le opzioni di posizionamento \texttt{[!htpb]} per consentire a \LaTeX\ di trovare la collocazione migliore nella pagina, evitando enormi spazi bianchi.
+		Tutti gli ambienti per le tabelle dovrebbero utilizzare le opzioni di posizionamento \texttt{[!htpb]} per consentire a \LaTeX\ di trovare la collocazione migliore nella pagina, evitando spazi bianchi eccessivi.
 	\end{block}
 	
 	L'ambiente classico \texttt{\textbackslash begin\{tabular\}} permette di creare tabelle eleganti e semplici. La \autoref{tab:table-01-it} mostra un esempio base che utilizza i comandi del pacchetto \texttt{booktabs} (\texttt{\textbackslash toprule}, \texttt{\textbackslash midrule}, \texttt{\textbackslash bottomrule}) per le linee orizzontali.
@@ -49,16 +48,16 @@
 			\toprule
 			\textbf{Intestazione 1} & \textbf{Intestazione 2} & \textbf{Stato} \\ 
 			\midrule
-			Analisi Dati          & Python, Pandas    & $\checkmark$  \\
-			Sviluppo Backend      & Node.js, Express  & -             \\
-			Interfaccia Grafica   & React, Tailwind   & $\checkmark$  \\
+			Analisi dei dati      & Python, Pandas    & $\checkmark$  \\
+			Sviluppo backend      & Node.js, Express  & -             \\
+			Interfaccia grafica   & React, Tailwind   & $\checkmark$  \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	Creare tabelle complesse a mano in \LaTeX\ può essere frustrante. Ti consigliamo caldamente di utilizzare strumenti online come il \href{https://www.tablesgenerator.com/}{generatore di tabelle per LaTeX}. Con questo strumento puoi disegnare la tabella graficamente e poi copiare e incollare il codice generato nel tuo documento.
+	Creare tabelle complesse a mano in \LaTeX\ può essere frustrante. Ti consigliamo di utilizzare strumenti online come il \href{https://www.tablesgenerator.com/}{generatore di tabelle per LaTeX}: puoi disegnare la tabella graficamente e poi copiare e incollare il codice generato nel tuo documento.
 	
-	\section{Equazioni e Formule Matematiche}
+	\section{Equazioni e formule matematiche}
 	Quando si scrivono equazioni, \LaTeX\ non ha rivali. Puoi inserire una formula all'interno del testo usando i delimitatori \texttt{\textbackslash( \ldots\ \textbackslash)}, oppure usare \texttt{\textbackslash begin\{equation\}} per centrarla nella pagina e numerarla in automatico. Se preferisci non numerare l'equazione, usa i delimitatori \texttt{\textbackslash[ \ldots\ \textbackslash]}.
 	
 	\vspace{.875em}
@@ -71,43 +70,43 @@
 	
 	Anche per le equazioni, se non conosci a memoria i comandi matematici, ti consigliamo di usare un editor online visuale come \href{https://latexeditor.lagrida.com/}{Lagrida LaTeX Equation Editor}.
 	
-	\section{Codice Sorgente (Listati)}
+	\section{Codice sorgente (listati)}
 	Per tesi in ambito informatico o ingegneristico, è spesso necessario mostrare del codice. In questo template puoi usare l'ambiente \texttt{lstlisting} per formattare la sintassi, come mostrato di seguito.
 	
 }{%
-	This chapter introduces the \LaTeX\ working environment and the essentials for producing your thesis. \LaTeX\ is a tool for creating professional documents using plain text with formatting commands, unlike visual editors like Microsoft Word. These files are processed by a TeX engine to generate a polished PDF, allowing you to focus on content. For a quick introduction, see Overleaf's \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn LaTeX in 30 minutes} series.
+	This chapter introduces the \LaTeX\ working environment and the essentials for producing your thesis. \LaTeX\ is a tool for creating professional documents using plain text with formatting commands, unlike visual editors like Microsoft Word. These files are processed by a TeX engine to generate a polished PDF, allowing you to focus on content. For a quick introduction, see Overleaf's \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn LaTeX in 30 minutes} guide.
 	
-	\section{Citations and References}
+	\section{Citations and references}
 	\label{sec:citations-en}
-	We present two distinct approaches for citing entries in the bibliography. The first method involves in-text citations using \texttt{\textbackslash citet\{ENTRY\}}, while the second method employs \texttt{\textbackslash citep\{ENTRY\}} for citations within brackets.
+	We present two distinct approaches for citing bibliography entries. The first method involves in-text citations using \texttt{\textbackslash citet\{ENTRY\}}, while the second method employs \texttt{\textbackslash citep\{ENTRY\}} for citations within brackets. You can cite multiple works at once using \texttt{\textbackslash citep\{ENTRY1, ENTRY2\}}.
 	
-	Much like citations, it is advisable to employ cross-references in your document for citing chapters, sections, figures, or tables. To reference these elements, begin by creating a label using \texttt{\textbackslash label\{TEXT\}}. Once created, you can utilise \texttt{\textbackslash autoref\{TEXT\}} to generate an in-text reference. This command automatically creates a custom link with the correct word and the Unibo official color, for instance: \autoref{cp:latex-tutorial}.
+	Much like citations, it is advisable to use cross-references in your document when referring to chapters, sections, figures, or tables. To do so, first create a label using \texttt{\textbackslash label\{TEXT\}} inside the element you want to reference. Then use \texttt{\textbackslash autoref\{TEXT\}} in the text. This command automatically creates a clickable link with the correct word, for instance: \autoref{cp:latex-tutorial}.
 	
 	\begin{block}[tip]
 		Proper citations and cross-references are vital in academic writing. They ensure credibility, transparency, and make the document easier to navigate for the graduation committee.
 	\end{block}
 	
-	\section{Glossary and Acronyms}
-	The document includes a glossary and an acronym list, accessible at the beginning of the document. You can create a new entry in the \texttt{Matter/04-Glossary.tex} and \texttt{Matter/05-Acronyms.tex} files. Once the entry is created, you can reference it using \texttt{\textbackslash gls\{ENTRY\}}. For acronym entries, use \texttt{\textbackslash acrfull\{ENTRY\}} the first time it appears (it provides the definition) and \texttt{\textbackslash acrshort\{ENTRY\}} subsequently.
+	\section{Glossary and acronyms}
+	The document includes a glossary and an acronym list, accessible at the beginning of the document. You can create new entries in the \texttt{Matter/04-Glossary.tex} and \texttt{Matter/05-Acronyms.tex} files. Once the entry is created, reference it using \texttt{\textbackslash gls\{ENTRY\}}. For acronyms, use \texttt{\textbackslash acrfull\{ENTRY\}} the first time it appears (it prints the full definition) and \texttt{\textbackslash acrshort\{ENTRY\}} subsequently.
 	
 	\section{Figures}
-	In \LaTeX, integrating figures is a straightforward process using the \texttt{\textbackslash begin\{figure\}} environment. You can customise the \texttt{width} parameter and it is crucial to furnish a well-crafted caption. The caption environment is denoted as \texttt{\textbackslash caption\{TEXT\}}. To generate a smaller caption for the List of Figures, utilise the format \texttt{\textbackslash caption[SMALL\_TEXT]\{BIG\_TEXT\}}.
+	In \LaTeX, integrating figures is straightforward using the \texttt{\textbackslash begin\{figure\}} environment. You can customise the \texttt{width} parameter and it is important to provide a well-written caption. The caption environment is denoted as \texttt{\textbackslash caption\{TEXT\}}. To generate a shorter caption for the list of figures, use the format \texttt{\textbackslash caption[SHORT\_TEXT]\{LONG\_TEXT\}}.
 	
 	\begin{figure}[!htpb]
 		\centering
 		\includegraphics[width=0.6\linewidth]{Figures/Theme/logo_frontespizio.png}
-		\caption[Official University logo for the title page.]{Example of inserting a figure, in this case the official logo of the Alma Mater Studiorum - University of Bologna used for the automatic generation of the title page.}
+		\caption[Official university logo for the title page.]{Example of inserting a figure: the official university logo used for the automatic generation of the title page.}
 		\label{fig:esempio-logo-en}
 	\end{figure}
 	
 	\section{Tables}
-	Tables are vital for presenting findings effectively. This template simplifies the process by providing pre-configured styles.
+	Tables are essential for presenting findings clearly. This template simplifies the process by providing pre-configured styles.
 	
 	\begin{block}[tip]
-		Different table environments must be within a \texttt{\textbackslash begin\{table\}} environment and use \texttt{[!htpb]} float options for better placement on the page.
+		All table environments should use the \texttt{[!htpb]} float options to allow \LaTeX\ to find the best placement on the page, avoiding excessive white space.
 	\end{block}
 	
-	The conventional \texttt{\textbackslash begin\{tabular\}} environment enables you to create a simple yet elegant table. \autoref{tab:table-01-en} is generated using the \texttt{booktabs} commands (\texttt{\textbackslash toprule}, \texttt{\textbackslash midrule}, \texttt{\textbackslash bottomrule}) for a sophisticated style.
+	The conventional \texttt{\textbackslash begin\{tabular\}} environment enables you to create simple yet elegant tables. \autoref{tab:table-01-en} uses the \texttt{booktabs} commands (\texttt{\textbackslash toprule}, \texttt{\textbackslash midrule}, \texttt{\textbackslash bottomrule}) for a clean style.
 	
 	\begin{table}[!htpb]
 		\caption{A table showcasing the usage of the standard tabular environment.}
@@ -115,47 +114,49 @@
 		\centering
 		\begin{tabular}{llc}
 			\toprule
-			\textbf{Header 01} & \textbf{Header 02} & \textbf{Status} \\ 
+			\textbf{Header 1} & \textbf{Header 2} & \textbf{Status} \\ 
 			\midrule
-			Data Analysis      & Python, Pandas     & $\checkmark$  \\
-			Backend Dev        & Node.js, Express   & -             \\
+			Data analysis      & Python, Pandas     & $\checkmark$  \\
+			Backend dev        & Node.js, Express   & -             \\
 			Frontend UI        & React, Tailwind    & $\checkmark$  \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
 	
-	Creating intricate tables manually in \LaTeX\ can be challenging. We highly recommend using online tools like the \href{https://www.tablesgenerator.com/}{LaTeX Table Generator}. You can design your table graphically and then easily copy and paste the code into your document.
+	Creating complex tables manually in \LaTeX\ can be tedious. We recommend using online tools like the \href{https://www.tablesgenerator.com/}{LaTeX table generator}: you can design the table graphically and paste the generated code directly into your document.
 	
-	\section{Equations and Mathematics}
-	When writing equations, \LaTeX\ is a powerful tool. You can enter a formula in inline mode using the delimiters \texttt{\textbackslash( \ldots\ \textbackslash)}, or use \texttt{\textbackslash begin\{equation\}} to display it in math mode with automatic numbering. If you prefer not to display the equation number, you can use the delimiters \texttt{\textbackslash[ \ldots\ \textbackslash]}.
+	\section{Equations and mathematics}
+	When writing equations, \LaTeX\ is unrivalled. You can insert a formula inline using the delimiters \texttt{\textbackslash( \ldots\ \textbackslash)}, or use \texttt{\textbackslash begin\{equation\}} to display it centred with automatic numbering. If you prefer no numbering, use the delimiters \texttt{\textbackslash[ \ldots\ \textbackslash]}.
 	
 	\vspace{.875em}
-	\textbf{Example:} In physics, the mass-energy equivalence is expressed by the equation \(E=mc^2\). In formula (\ref{eq:equation-01-en}) we can see its basic form:
+	\textbf{Example:} In physics, mass-energy equivalence is expressed by \(E=mc^2\). In equation (\ref{eq:equation-01-en}) we see its basic form:
 	
 	\begin{equation}
 		\label{eq:equation-01-en}
 		E=mc^2
 	\end{equation}
 	
-	\section{Code Listings}
-	For computer science or engineering theses, including source code is common. In this template, you can use the \texttt{lstlisting} environment for syntax highlighting, as shown below.
+	If you are not familiar with mathematical commands, we recommend using an online visual editor like \href{https://latexeditor.lagrida.com/}{Lagrida LaTeX Equation Editor}.
+	
+	\section{Code listings}
+	For computer science or engineering theses, including source code is common. In this template, use the \texttt{lstlisting} environment for syntax highlighting, as shown below.
 }
 
-% PREPARAZIONE VARIABILI PER LA DIDASCALIA BILINGUE FUORI DAL BLOCCO
+% PREPARAZIONE VARIABILI PER LA DIDASCALIA BILINGUE
 \ifthenelse{\equal{\LanguageOption}{italian}}{%
-	\def\codecaption{Il classico "Hello World" scritto in linguaggio C.}
+	\def\codecaption{Il classico ``Hello World'' scritto in linguaggio C.}
 	\def\codelabel{listing:c-code-it}
 }{%
 	\def\codecaption{Hello world in C language.}
 	\def\codelabel{listing:c-code-en}
 }
 
-% AMBIENTE LSTLISTING POSIZIONATO FUORI DALL'IFTHENELSE
+% AMBIENTE LSTLISTING FUORI DALL'IFTHENELSE
 \begin{lstlisting}[language=C, caption={\codecaption}, label={\codelabel}, frame=single, float=!htpb]
 	#include <stdio.h>
 	
 	int main() {
-		printf("Hello, Alma Mater!"); 
+		printf("Hello, world!");
 		return 0;
 	}
 \end{lstlisting}

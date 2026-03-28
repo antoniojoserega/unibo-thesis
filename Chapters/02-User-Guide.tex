@@ -1,12 +1,12 @@
 \ifthenelse{\equal{\LanguageOption}{italian}}{%
-	\chapter[Guida all'Uso: Istruzioni per l'utilizzo del Template]{Guida all'Uso\\Istruzioni per l'utilizzo del Template}
+	\chapter[Guida all'uso: istruzioni per l'utilizzo del template]{Guida all'uso\\Istruzioni per l'utilizzo del template}
 }{%
-	\chapter[Comprehensive User Guide: Instructions for Using the Template]{Comprehensive User Guide\\Instructions for Using the Template}
+	\chapter[Guida completa: istruzioni per l'utilizzo del template]{Guida completa\\Instructions for using the template}
 }
 \label{cp:user-guide}
 
 \ifthenelse{\equal{\LanguageOption}{italian}}{%
-	Se hai scelto di utilizzare questo template per la tua tesi all'Università di Bologna, questo capitolo è fondamentale. Ti spiegherà la struttura delle cartelle, come personalizzare i tuoi dati (nome, matricola, titolo) e come utilizzare le funzioni avanzate che abbiamo preparato per te.
+	Se hai scelto di utilizzare questo template per la tua tesi, questo capitolo è fondamentale. Ti spiegherà la struttura delle cartelle, come personalizzare i tuoi dati (nome, matricola, titolo) e come utilizzare le funzioni avanzate che abbiamo preparato per te.
 	
 	Il template è diviso in diverse cartelle logiche. Il file principale che ``dirige'' tutto il documento si chiama \texttt{UniboMain.tex}. Nella \autoref{tab:file-structure-it} trovi una panoramica della struttura: la spunta ($\checkmark$) indica le cartelle dove andrai a lavorare, mentre il trattino (-) indica i file di sistema che non dovresti modificare.
 	
@@ -23,32 +23,34 @@
 			\textit{Chapters} & $\checkmark$ & Qui inserirai i singoli capitoli della tua tesi. \\
 			\textit{Configurations} & - & Contiene i file \texttt{.sty} (font, colori, macro) che fanno funzionare il template. \\
 			\textit{Figures} & $\checkmark$ & Salva qui tutte le immagini, grafici e loghi. \\
-			\textit{Matter} & - & Contiene le parti fisse come la Copertina e l'indice. \\
+			\textit{Matter} & - & Contiene le parti fisse come la copertina e l'indice. \\
 			\textit{Metadata} & $\checkmark$ & Contiene il file in cui inserirai il tuo nome, titolo e relatore. \\
 			\bottomrule
 		\end{tabularx}
 	\end{table}
 	
-	È fondamentale rispettare la convenzione di nomenclatura dei file: usa sempre un numero progressivo a due cifre seguito da un trattino e dal nome del file (es. \texttt{01-Introduzione.tex}).
+	È fondamentale rispettare la convenzione di nomenclatura dei file: usa sempre un numero progressivo a due cifre seguito da un trattino e dal nome del file \\ (es. \texttt{01-Introduzione.tex}).
 	
-	\section{Personalizzazione dei Dati (Metadata)}
+	\newpage
+	
+	\section{Personalizzazione dei dati (metadata)}
 	\label{sec:metadata-it}
-	La prima cosa da fare è aprire il file \texttt{Metadata/Metadata.tex}. Qui troverai un elenco di comandi dove potrai inserire i tuoi dati personali, il titolo della tesi, il nome del relatore e l'Anno Accademico.
+	La prima cosa da fare è aprire il file \texttt{Metadata/Metadata.tex}. Qui troverai un elenco di comandi dove potrai inserire i tuoi dati personali, il titolo della tesi, il nome del relatore e l'anno accademico.
 	
 	\begin{block}[note]
 		La copertina si formatterà automaticamente in base ai dati che inserirai in questo file. Se un campo non ti serve (ad esempio il correlatore), ti basterà commentare o svuotare la riga relativa in \texttt{Metadata.tex}.
 	\end{block}
 	
-	\section{Inserimento dei Capitoli}
+	\section{Inserimento dei capitoli}
 	Per aggiungere un nuovo capitolo alla tua tesi:
 	\begin{enumerate}
 		\item Crea un nuovo file \texttt{.tex} nella cartella \textit{Chapters} (es. \texttt{03-Stato-Arte.tex}).
 		\item Apri il file \texttt{UniboMain.tex}.
-		\item Scorri fino alla sezione intitolata \texttt{\%\%\% Chapters \%\%\%} e aggiungi il comando \texttt{\textbackslash include\{Chapters/03-Stato-Arte\}}.
+		\item Scorri fino alla sezione \texttt{\%\%\% Chapters \%\%\%} e aggiungi il comando \\ \texttt{\textbackslash include\{Chapters/03-Stato-Arte\}}.
 	\end{enumerate}
 	
-	\section{Blocchi e Avvisi (Callouts)}
-	Questo template include una funzione esclusiva per inserire dei ``blocchi'' colorati, molto utili per evidenziare definizioni, teoremi o semplici note. Per inserire un blocco, usa l'ambiente \texttt{\textbackslash begin\{block\}[tipo]} dove \texttt{tipo} può essere \texttt{note}, \texttt{tip}, \texttt{warning} o \texttt{todo}.
+	\section{Blocchi e avvisi (callout)}
+	Questo template include una funzione per inserire dei blocchi colorati, molto utili per evidenziare definizioni, teoremi o semplici note. Per inserire un blocco, usa l'ambiente \texttt{\textbackslash begin\{block\}[tipo]} dove \texttt{tipo} può essere \texttt{note}, \texttt{tip}, \texttt{warning} o \texttt{todo}.
 	
 	Ecco un esempio visivo di come appariranno nel PDF:
 	
@@ -60,10 +62,10 @@
 		raster column skip=1cm
 		]
 		\begin{block}[todo]
-			Questo è un blocco ``To-Do'' (Da fare). Ottimo per segnarti appunti in fase di bozza.
+			Questo è un blocco \texttt{todo}. Ottimo per segnarti appunti in fase di bozza.
 		\end{block}
 		\begin{block}[tip]
-			Questo è un blocco ``Tip'' (Suggerimento). Utile per evidenziare una best-practice.
+			Questo è un blocco \texttt{tip}. Utile per evidenziare una buona pratica.
 		\end{block}
 	\end{tcbraster}
 	
@@ -74,18 +76,18 @@
 		raster column skip=1cm
 		]
 		\begin{block}[warning]
-			Questo è un blocco ``Warning'' (Attenzione). Per evidenziare limitazioni o criticità.
+			Questo è un blocco \texttt{warning}. Per evidenziare limitazioni o criticità.
 		\end{block}
 		\begin{block}[note]
-			Questo è un blocco ``Note'' (Nota). Perfetto per definizioni e corollari.
+			Questo è un blocco \texttt{note}. Perfetto per definizioni e corollari.
 		\end{block}
 	\end{tcbraster}
 	\vspace{.875em}
 	
 }{%
-	If you plan to use this template for your University of Bologna thesis, please read this chapter carefully. It explains the directory structure, how to customize your metadata (name, student ID, title), and how to use the advanced features provided.
+	If you plan to use this template for your thesis, please read this chapter carefully. It explains the directory structure, how to customise your metadata (name, student ID, title), and how to use the advanced features provided.
 	
-	The template is divided into several logical directories. The main file that ``directs'' the entire document is called \texttt{UniboMain.tex}. \autoref{tab:file-structure-en} provides an overview of the structure: the check-mark ($\checkmark$) indicates folders you will work in, while the hyphen (-) indicates system files you shouldn't modify.
+	The template is divided into several logical directories. The main file that ``directs'' the entire document is called \texttt{UniboMain.tex}. \autoref{tab:file-structure-en} provides an overview of the structure: the check-mark ($\checkmark$) indicates folders you will work in, while the hyphen (-) indicates system files you should not modify.
 	
 	\begin{table}[!htpb]
 		\setlength{\extrarowheight}{2pt}
@@ -100,34 +102,34 @@
 			\textit{Chapters} & $\checkmark$ & Individual thesis chapters are stored here. \\
 			\textit{Configurations} & - & Contains the \texttt{.sty} files (fonts, colours, macros) that run the template. \\
 			\textit{Figures} & $\checkmark$ & Save all your images, charts, and logos here. \\
-			\textit{Matter} & - & Contains fixed parts like the Cover page and TOC. \\
+			\textit{Matter} & - & Contains fixed parts like the cover page and table of contents. \\
 			\textit{Metadata} & $\checkmark$ & Contains the file where you will insert your name, title, and supervisor. \\
 			\bottomrule
 		\end{tabularx}
 	\end{table}
 	
-	It is crucial to respect the file naming convention: always use an ascending two-digit number followed by a hyphen and the file name (e.g., \texttt{01-Introduction.tex}).
+	It is important to respect the file naming convention: always use an ascending two-digit number followed by a hyphen and the file name (e.g., \texttt{01-Introduction.tex}).
 	
-	\section{Metadata Customisation}
+	\section{Metadata customisation}
 	\label{sec:metadata-en}
-	The first step is to open the \texttt{Metadata/Metadata.tex} file. Here you will find commands to insert your personal data, thesis title, supervisor name, and Academic Year.
+	The first step is to open the \texttt{Metadata/Metadata.tex} file. Here you will find commands to insert your personal data, thesis title, supervisor name, and academic year.
 	
 	\begin{block}[note]
-		The cover page will automatically format itself based on the data you enter in this file. If you don't need a specific field (like a co-supervisor), simply comment out or empty the relevant line in \texttt{Metadata.tex}.
+		The cover page will automatically format itself based on the data you enter in this file. If you do not need a specific field (such as a co-supervisor), simply comment out or empty the relevant line in \texttt{Metadata.tex}.
 	\end{block}
 	
-	\section{Custom Chapter Insertion}
+	\section{Adding chapters}
 	To add a new chapter to your thesis:
 	\begin{enumerate}
 		\item Create a new \texttt{.tex} file in the \textit{Chapters} directory (e.g., \texttt{03-State-of-the-Art.tex}).
 		\item Open the \texttt{UniboMain.tex} file.
-		\item Scroll down to the \texttt{\%\%\% Chapters \%\%\%} section and add the command \texttt{\textbackslash include\{Chapters/03-State-of-the-Art\}}.
+		\item Scroll to the \texttt{\%\%\% Chapters \%\%\%} section and add the command \texttt{\textbackslash include\{Chapters/03-State-of-the-Art\}}.
 	\end{enumerate}
 	
-	\section{Custom Blocks (Callouts)}
-	This template includes an exclusive feature for inserting coloured ``blocks,'' which are very useful for highlighting definitions, theorems, or simple notes. To insert a block, use the environment \texttt{\textbackslash begin\{block\}[type]} where \texttt{type} can be \texttt{note}, \texttt{tip}, \texttt{warning}, or \texttt{todo}.
+	\section{Custom blocks (callouts)}
+	This template includes a feature for inserting coloured blocks, useful for highlighting definitions, theorems, or notes. To insert a block, use the environment \texttt{\textbackslash begin\{block\}[type]} where \texttt{type} can be \texttt{note}, \texttt{tip}, \texttt{warning}, or \texttt{todo}.
 	
-	Here is a visual example of how they will look in the PDF:
+	Here is a visual example of how they will appear in the PDF:
 	
 	\vspace{.875em}
 	\begin{tcbraster}[
@@ -137,10 +139,10 @@
 		raster column skip=1cm
 		]
 		\begin{block}[todo]
-			This is a ``To-Do'' block. Great for noting things during the drafting phase.
+			This is a \texttt{todo} block. Great for noting things during the drafting phase.
 		\end{block}
 		\begin{block}[tip]
-			This is a ``Tip'' block. Useful for highlighting best practices.
+			This is a \texttt{tip} block. Useful for highlighting best practices.
 		\end{block}
 	\end{tcbraster}
 	
@@ -151,13 +153,13 @@
 		raster column skip=1cm
 		]
 		\begin{block}[warning]
-			This is a ``Warning'' block. Used to highlight limitations or critical issues.
+			This is a \texttt{warning} block. Used to highlight limitations or critical issues.
 		\end{block}
 		\begin{block}[note]
-			This is a ``Note'' block. Perfect for definitions and corollaries.
-		\end{block}
-	\end{tcbraster}
-	\vspace{.875em}
-}
-
-\MediaOptionLogicBlank
+			This is a \texttt{note} block. Perfect for definitions and corollaries.
+			\end{block}
+			\end{tcbraster}
+			\vspace{.875em}
+		}
+		
+		\MediaOptionLogicBlank
