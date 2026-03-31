@@ -39,17 +39,22 @@ Questa repository contiene tutto il <b>codice sorgente del template</b>, organiz
 ---
 
 ## Hai bisogno di aiuto con la tesi?
+
 Sei vicino alla consegna, non hai tempo di imparare la sintassi di LaTeX, o stai impazzendo con l'impaginazione di Word? **Posso aiutarti io.**
 
 Sono uno studente di Ingegneria e mi occupo di formattazione accademica avanzata. Offro i seguenti servizi:
+
 * **Conversione integrale (Word ➡️ LaTeX):** trasformo il tuo file Word disordinato in un PDF accademico perfetto, senza che tu debba scrivere una riga di codice.
 * **Creazione grafici e schemi tecnici (TikZ):** ridai vita ai tuoi schemi disegnando versioni vettoriali professionali (ideale per le materie STEM).
 * **Gestione bibliografia (BibTeX):** sistemazione e uniformazione di tutte le tue fonti.
 * **Risoluzione errori e fix "last minute":** hai un progetto Overleaf che non compila più? Ci do un'occhiata e risolvo il bug.
 
-📩 **Contattami senza impegno per un preventivo rapido:**
-* **Instagram:** <a href="https://www.instagram.com/__my_pleasure__" target="_blank">@__my_pleasure__</a>
-* **Email:** <a href="mailto:antonio.jose.rega@gmail.com">antonio.jose.rega@gmail.com</a>
+**Affida la tua tesi a un professionista:**
+Puoi visionare i pacchetti e prenotare direttamente il servizio in modo sicuro tramite la mia **[Gig su Fiverr](https://it.fiverr.com/s/Zmjryea)**.
+
+📩 **Oppure contattami senza impegno per un preventivo rapido:**
+* **Instagram:** [@__my_pleasure__](https://www.instagram.com/__my_pleasure__)
+* **Email:** [antonio.jose.rega@gmail.com](mailto:antonio.jose.rega@gmail.com)
 
 ---
 
